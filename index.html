@@ -291,7 +291,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -299,11 +299,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-5cf8f9a6.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
               <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
@@ -312,22 +310,41 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            <a href="#authorization" class="toc-h1 toc-link" data-title="Authorization">Authorization</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#automation" class="toc-h1 toc-link" data-title="Automation">Automation</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#automation-visitor" class="toc-h2 toc-link" data-title="/automation/visitor">/automation/visitor</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#suggestion" class="toc-h1 toc-link" data-title="Suggestion">Suggestion</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-suggestions-visitor" class="toc-h2 toc-link" data-title="/api/suggestions/visitor">/api/suggestions/visitor</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#api-suggestions-agent" class="toc-h2 toc-link" data-title="/api/suggestions/agent">/api/suggestions/agent</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#ticket-automation-with-salesforce" class="toc-h1 toc-link" data-title="Ticket Automation with Salesforce">Ticket Automation with Salesforce</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#salesforce-ticket-converse" class="toc-h2 toc-link" data-title="/salesforce/ticket/converse">/salesforce/ticket/converse</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#salesforce-ticket-error" class="toc-h2 toc-link" data-title="/salesforce/ticket/error">/salesforce/ticket/error</a>
+                  </li>
+                  <li>
+                    <a href="#gdpr-salesforce-delete-user-data" class="toc-h2 toc-link" data-title="/gdpr/salesforce/delete-user-data">/gdpr/salesforce/delete-user-data</a>
                   </li>
               </ul>
           </li>
@@ -336,58 +353,19 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://ultimate.ai'>Request a Developer Key</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+        <h1 id='getting-started'>Getting Started</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
+<p>Pellentesque mollis purus dapibus odio ultricies, nec blandit enim pulvinar. Nam in mauris pretium, hendrerit dui nec, sollicitudin ligula. Pellentesque viverra mi felis, in vehicula eros feugiat sed. Aenean semper erat et tellus iaculis, at facilisis nulla lacinia. Aenean tincidunt ac leo in porttitor. Ut quis tincidunt libero, id fermentum nunc. Nam vulputate eu eros nec euismod. Nulla nec interdum mi. Maecenas non eros tincidunt, gravida elit ornare, pharetra turpis. Vestibulum cursus a odio quis efficitur. Donec egestas pellentesque ligula at semper. Ut eu leo at tellus blandit euismod.</p>
+<h1 id='authorization'>Authorization</h1>
+<p>Requires a header named <code>authorization</code>, the value of which will be provided by ultimate.ai</p>
+<h1 id='automation'>Automation</h1><h2 id='automation-visitor'>/automation/visitor</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
 
@@ -414,114 +392,64 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint accepts a visitor message and responds with a bot response and attached actions. 
+A response could be a simple text reply or a dialog which includes multiple messages.
+In the current API version, the only action supported is a param that flags whether the conversation should be “escalated” (meaning- the agent owning the conversation should be changed from bot to human agent / human department). </p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>POST /api/automation/visitor</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>botId</td>
+<td>string</td>
+<td>ID of the bot used to identify which bot sends the reply. Will be provided by ultimate.ai</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>message</td>
+<td>string</td>
+<td>The text message that the visitor typed into the chat, optional if type is join. If a button was pressed, the message should be the value of the button (unless it’s a link button)</td>
+</tr>
+<tr>
+<td>conversationId</td>
+<td>string</td>
+<td>An id used by the chat provider to identify the conversation. Chat provider can decide the format.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Type of the message, can be <code>join</code> when chat is created and want to get the welcomeMessage, <code>message</code> if sending a message</td>
 </tr>
 </tbody></table>
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — a conversation needs to be initialized first, by sending a message of type join before visitor messages of type message can be sent in the conversation.
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h1 id='suggestion'>Suggestion</h1><h2 id='api-suggestions-visitor'>/api/suggestions/visitor</h2>
+<p>Sed ac lectus eros. Ut sit amet bibendum lorem. Maecenas vel molestie ex. Suspendisse at ipsum quis tellus vehicula molestie gravida nec orci. Praesent feugiat dui quis elit fringilla, sit amet bibendum nibh elementum. Sed luctus nec ex ut egestas. Duis nulla enim, ornare rhoncus consectetur sit amet, vehicula eu nunc. Quisque laoreet ipsum nisi. In pellentesque tellus orci, ut porttitor lacus tempus vel. Aliquam pharetra laoreet purus, ac tincidunt lectus dignissim eu. Phasellus imperdiet tincidunt pulvinar. Aliquam vitae nisi mi. Aliquam ut dolor consectetur, vestibulum nunc non, blandit augue. Pellentesque sit amet fermentum dolor. Sed quis porttitor massa, id sagittis mi.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/suggestions/visitor</code></p>
+<h2 id='api-suggestions-agent'>/api/suggestions/agent</h2>
+<p>Aliquam erat volutpat. Nunc commodo dapibus molestie. Integer eu erat dictum, efficitur ante at, euismod ex. Ut id erat finibus, suscipit nisl quis, pharetra ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam vulputate in turpis sed auctor. Maecenas cursus dictum risus eu mollis. Nunc molestie efficitur tellus, et dictum erat accumsan eu. In sagittis metus neque, vel aliquam felis tincidunt nec.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
+<p><code>POST /api/suggestions/agent</code></p>
+<h1 id='ticket-automation-with-salesforce'>Ticket Automation with Salesforce</h1><h2 id='salesforce-ticket-converse'>/salesforce/ticket/converse</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /salesforce/ticket/converse</code></p>
+<h2 id='salesforce-ticket-error'>/salesforce/ticket/error</h2>
+<p>Pellentesque mollis purus dapibus odio ultricies, nec blandit enim pulvinar. Nam in mauris pretium, hendrerit dui nec, sollicitudin ligula. Pellentesque viverra mi felis, in vehicula eros feugiat sed. Aenean semper erat et tellus iaculis, at facilisis nulla lacinia. Aenean tincidunt ac leo in porttitor. Ut quis tincidunt libero, id fermentum nunc. Nam vulputate eu eros nec euismod. Nulla nec interdum mi. Maecenas non eros tincidunt, gravida elit ornare, pharetra turpis. Vestibulum cursus a odio quis efficitur. Donec egestas pellentesque ligula at semper. Ut eu leo at tellus blandit euismod.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /salesforce/ticket/error</code></p>
+<h2 id='gdpr-salesforce-delete-user-data'>/gdpr/salesforce/delete-user-data</h2>
+<p>Nullam justo purus, faucibus non semper at, eleifend et justo. Donec lobortis leo eget eros viverra rhoncus. Nam posuere massa felis, eget elementum felis placerat et. Donec eu odio sapien. Vestibulum ut ante ut eros pretium mollis. Sed sollicitudin semper augue quis condimentum. Donec sed rutrum arcu. Pellentesque suscipit dolor ut orci imperdiet, fringilla auctor nunc pellentesque. Praesent auctor risus in libero pulvinar aliquet.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+<p><code>POST /gdpr/salesforce/delete-user-data</code></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -585,8 +513,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
                 <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
