@@ -316,15 +316,32 @@
             <a href="#authorization" class="toc-h1 toc-link" data-title="Authorization">Authorization</a>
           </li>
           <li>
-            <a href="#automation" class="toc-h1 toc-link" data-title="Automation">Automation</a>
+            <a href="#intent-recognition" class="toc-h1 toc-link" data-title="Intent Recognition">Intent Recognition</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#automation-visitor" class="toc-h2 toc-link" data-title="/automation/visitor">/automation/visitor</a>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#suggestion" class="toc-h1 toc-link" data-title="Suggestion">Suggestion</a>
+            <a href="#chat-automation" class="toc-h1 toc-link" data-title="Chat Automation">Chat Automation</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#start-a-conversation" class="toc-h2 toc-link" data-title="Start a conversation">Start a conversation</a>
+                  </li>
+                  <li>
+                    <a href="#send-a-visitor-message" class="toc-h2 toc-link" data-title="Send a visitor message">Send a visitor message</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#suggestion-engine" class="toc-h1 toc-link" data-title="Suggestion Engine">Suggestion Engine</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#api-suggestions-visitor" class="toc-h2 toc-link" data-title="/api/suggestions/visitor">/api/suggestions/visitor</a>
@@ -351,6 +368,14 @@
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
+          <li>
+            <a href="#markdown-syntax" class="toc-h1 toc-link" data-title="Markdown Syntax">Markdown Syntax</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#sub-section" class="toc-h2 toc-link" data-title="Sub Section">Sub Section</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='https://ultimate.ai'>Request a Developer Key</a></li>
@@ -365,36 +390,14 @@
 <p>Pellentesque mollis purus dapibus odio ultricies, nec blandit enim pulvinar. Nam in mauris pretium, hendrerit dui nec, sollicitudin ligula. Pellentesque viverra mi felis, in vehicula eros feugiat sed. Aenean semper erat et tellus iaculis, at facilisis nulla lacinia. Aenean tincidunt ac leo in porttitor. Ut quis tincidunt libero, id fermentum nunc. Nam vulputate eu eros nec euismod. Nulla nec interdum mi. Maecenas non eros tincidunt, gravida elit ornare, pharetra turpis. Vestibulum cursus a odio quis efficitur. Donec egestas pellentesque ligula at semper. Ut eu leo at tellus blandit euismod.</p>
 <h1 id='authorization'>Authorization</h1>
 <p>Requires a header named <code>authorization</code>, the value of which will be provided by ultimate.ai</p>
-<h1 id='automation'>Automation</h1><h2 id='automation-visitor'>/automation/visitor</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint accepts a visitor message and responds with a bot response and attached actions. 
+<h1 id='intent-recognition'>Intent Recognition</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /api/intents</code></p>
+<h1 id='chat-automation'>Chat Automation</h1>
+<p>This endpoint is used to automate chat conversations. It accepts a visitor message and responds with a bot response and attached actions. 
 A response could be a simple text reply or a dialog which includes multiple messages.
-In the current API version, the only action supported is a param that flags whether the conversation should be “escalated” (meaning- the agent owning the conversation should be changed from bot to human agent / human department). </p>
+In the current API version, the only action supported is <code>forwardToHuman</code> paramter, that flags whether the conversation should be escalated to a human (the agent owning the conversation should be changed from bot to human agent / human department). </p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /api/automation/visitor</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -402,35 +405,164 @@ In the current API version, the only action supported is a param that flags whet
 <tr>
 <th>Parameter</th>
 <th>Type</th>
+<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>botId</td>
 <td>string</td>
-<td>ID of the bot used to identify which bot sends the reply. Will be provided by ultimate.ai</td>
-</tr>
-<tr>
-<td>message</td>
-<td>string</td>
-<td>The text message that the visitor typed into the chat, optional if type is join. If a button was pressed, the message should be the value of the button (unless it’s a link button)</td>
+<td>true</td>
+<td>ID of the bot used to identify which bot sends the reply. This ID will be provided by ultimate.ai</td>
 </tr>
 <tr>
 <td>conversationId</td>
 <td>string</td>
-<td>An id used by the chat provider to identify the conversation. Chat provider can decide the format.</td>
+<td>true</td>
+<td>An ID used by the chat provider to identify the conversation. The chat provider can decide the format.</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>true if type is &#39;message&#39;</td>
+<td>The text message that the visitor typed into the chat. The message is optional if type is join. If a button was pressed, the message should be the value of the button (unless it’s a link button).</td>
 </tr>
 <tr>
 <td>type</td>
-<td>string</td>
-<td>Type of the message, can be <code>join</code> when chat is created and want to get the welcomeMessage, <code>message</code> if sending a message</td>
+<td>enum [&#39;message&#39;, &#39;join&#39;]</td>
+<td>false</td>
+<td>Use type <code>join</code> when the conversation is created. The welcomeMessage will be given as a response in case there is one for the given bot. Use type <code>message</code> if sending a visitor message.</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>enum [&#39;liveAgent&#39;, &#39;giosg&#39;, &#39;liveChat&#39;, &#39;zendesk&#39;, &#39;freshchat&#39;, &#39;sap&#39;, &#39;facebook&#39;, &#39;zendeskSupport&#39;]</td>
+<td>false</td>
+<td>CRM Platform this chat is integrated with, if applicable.</td>
 </tr>
 </tbody></table>
+<h2 id='start-a-conversation'>Start a conversation</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/automation/visitor'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"BOT ID PROVIDED BY ULTIMATE.AI","conversationId":"NEW CONVERSATION ID","type":"join"}'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">startConversation</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/automation/visitor</span><span class="dl">'</span><span class="p">,</span> 
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BOT ID PROVIDED BY ULTIMATE.AI</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">NEW CONVERSATION ID</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">join</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">};</span>
 
-<aside class="success">
-Remember — a conversation needs to be initialized first, by sending a message of type join before visitor messages of type message can be sent in the conversation.
+<span class="nx">startConversation</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">constole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"confidenceThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello :)"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forwardToHuman"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"secondMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How can I help you today?"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"predictedIntents"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>To start a conversation (ie: when the chat widget is opened) create a new <code>conversationId</code> and POST a message of type <code>join</code> with the new conversationId. 
+The API will respond with the welcomeMessage if there is a welcomeMessage defined for the given bot.</p>
+
+<p>All subsequent visitor messages sent in the chat, should use the same conversationId as the one used to start the conversation.</p>
+
+<aside class="notice">
+Remember — a conversation needs to be started first, by sending a message of type join before visitor messages of type message can be sent in the conversation.
 </aside>
-<h1 id='suggestion'>Suggestion</h1><h2 id='api-suggestions-visitor'>/api/suggestions/visitor</h2>
+<h2 id='send-a-visitor-message'>Send a visitor message</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/automation/visitor'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"BOT ID PROVIDED BY ULTIMATE.AI","conversationId":"CONVERSATION ID","type":"message" "message": "The shoes I have ordered are damaged."}'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">sendMessage</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/automation/visitor</span><span class="dl">'</span><span class="p">,</span> 
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BOT ID PROVIDED BY ULTIMATE.AI</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CONVERSATION ID</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">The shoes I have ordered are damaged.</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">startConversation</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">constole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"confidenceThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I'm sorry to hear that, that must be frustrating. When did the damage happen?"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"forwardToHuman"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered damaged."</span><span class="w"> 
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"After use."</span><span class="w"> 
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"predictedIntents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Claims"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567891"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing Item"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Once a <a href="#start-a-conversation">conversation was started</a> POST visitor messages with the same <code>conversationId</code> used when starting the conversation and use the message type <code>message</code> to receive an automated reply.
+The response will contain an array with the bot messages for the highest predicted intent as well as a list of predicted intents for the given visitor message. 
+Bot messages will contain the text of the reply and might also contain an array of buttons and a flag when conversations should be escalated to a human agent.</p>
+
+<p>When a user presses one of the given buttons, send the value of the button as a message in the conversation to continue the dialogue.</p>
+
+<p>In case you are escalating the conversation to a human agent use the <a href="#api-suggestions-agent">suggestions/agent endpoint</a> to send the agent&#39;s messages to the conversation.</p>
+<h1 id='suggestion-engine'>Suggestion Engine</h1><h2 id='api-suggestions-visitor'>/api/suggestions/visitor</h2>
 <p>Sed ac lectus eros. Ut sit amet bibendum lorem. Maecenas vel molestie ex. Suspendisse at ipsum quis tellus vehicula molestie gravida nec orci. Praesent feugiat dui quis elit fringilla, sit amet bibendum nibh elementum. Sed luctus nec ex ut egestas. Duis nulla enim, ornare rhoncus consectetur sit amet, vehicula eu nunc. Quisque laoreet ipsum nisi. In pellentesque tellus orci, ut porttitor lacus tempus vel. Aliquam pharetra laoreet purus, ac tincidunt lectus dignissim eu. Phasellus imperdiet tincidunt pulvinar. Aliquam vitae nisi mi. Aliquam ut dolor consectetur, vestibulum nunc non, blandit augue. Pellentesque sit amet fermentum dolor. Sed quis porttitor massa, id sagittis mi.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /api/suggestions/visitor</code></p>
@@ -506,6 +638,102 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <tr>
 <td>503</td>
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+<h1 id='markdown-syntax'>Markdown Syntax</h1>
+<p>Here is a little cheat sheet providing an overview of different components that can be used in these markdown files to show you how things can be documented and how that will be displayed in the slate documentation.
+Please make sure to remove this section from the list includes in <code>source/index.htl.md</code> before we publish.</p>
+
+<p>You can find more information in the <a href="https://calendar.google.com/calendar/u/0/r?tab=kc&amp;pli=1">Slate Wiki</a>.</p>
+<h2 id='sub-section'>Sub Section</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://my-api.com/endpoint"</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'authorization: API_TOKEN'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{"parameter":"value"}'</span> <span class="se">\</span>
+<span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">queryData</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://my-api.com/endpoint</span><span class="dl">'</span><span class="p">,</span> 
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="nx">API_TOKEN</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">parameter</span><span class="p">:</span> <span class="dl">'</span><span class="s1">value</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+<span class="p">};</span>
+
+<span class="nx">queryData</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">constole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>Code Annotations will appear in all tabs:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Value"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Value"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This section will also appear as an element in the navigation.
+There are two code examples for this sub section. if you want to display more tabs with other languages, add them to the list of languages in <code>source/index.html.md</code> and then add code examples for those languages where they are needed.</p>
+<h3 id='sub-sub-section-i'>Sub Sub Section I</h3>
+<p>This headline can be used to divide your documentation into several sections, that won&#39;t be listed separately in the navigation.</p>
+
+<aside class="notice">
+Useful Information
+</aside>
+
+<aside class="success">
+A Success Message
+</aside>
+
+<aside class="warning">
+A Warning
+</aside>
+<h3 id='sub-sub-section-ii'>Sub Sub Section II</h3>
+<table><thead>
+<tr>
+<th>Column 1</th>
+<th>Column 2</th>
+<th>Column 3</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key 1</td>
+<td>value 1</td>
+<td>Lorem ipsum dolor sit amet</td>
+</tr>
+<tr>
+<td>key 2</td>
+<td>value 2</td>
+<td>Mauris scelerisque magna eu sapien rutrum euismod</td>
+</tr>
+<tr>
+<td>key 3</td>
+<td>value 3</td>
+<td>Praesent est urna, hendrerit vitae luctus non</td>
+</tr>
+<tr>
+<td>key 4</td>
+<td>value 4</td>
+<td>Ut tellus quam, consectetur quis metus sit amet</td>
+</tr>
+<tr>
+<td>key 5</td>
+<td>value 5</td>
+<td>Aliquam laoreet at leo fermentum ornare</td>
 </tr>
 </tbody></table>
 
