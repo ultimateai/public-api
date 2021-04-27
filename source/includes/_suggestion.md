@@ -1,4 +1,4 @@
-# Suggestion
+# Suggestion Engine
 
 ## /api/suggestions/visitor
 
