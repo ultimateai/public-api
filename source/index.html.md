@@ -16,7 +16,7 @@ includes:
   - suggestion
   - salesforce
   - errors
-  - doc-components
+  - markdown
 
 search: true
 
