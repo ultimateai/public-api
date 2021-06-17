@@ -6,11 +6,10 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='https://ultimate.ai'>Request a Developer Key</a>
+  - <a href='https://ultimate.ai'>Request an Authorization Token</a>
 
 includes:
-  - getting-started
-  - authorization
+  - introduction
   - intents
   - automation
   - suggestion
