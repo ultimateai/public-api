@@ -1,25 +1,140 @@
 # Ticket Automation with Salesforce
 
-## /salesforce/ticket/converse
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+## Authentication
+
+```shell
+curl 'https://chat.ultimate.ai/api/v2/automation' \
+  -H 'authorization: {basicAuthToken}'
+```
+
+```javascript
+fetch(
+    'https://chat.ultimate.ai/api/v2/automation', 
+    {
+        headers: {
+            'authorization': '{basicAuthToken}'
+        },
+    }
+);
+```
+This endpoint is protected by [Basic Access Athentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
+
+If you are a client already, contact your customer support manager to create 
+an API user for you. They will provide you with the Basic Auth Token for your user.
+
+If you are not a client yet, you can request a Basic Auth Token 
+to try out the API from [here](https://ultimate.ai).
+
+Once you have your Basic Auth Token, you can authorize to the API by setting 
+a header named `authorization` containing your token.
+
+<aside class="notice">
+Please do not share your auth token with other users or applications 
+and don't publish them in public code repositories.
+</aside>
+
+## Ticket Automation
+
+Send a visitor’s email to receive matching intents with confidences and SF ticket parameters.
 
 ### HTTP Request
 
-`POST /salesforce/ticket/converse`
+Method: `POST`
 
-## /salesforce/ticket/error
+Endpoint: `/salesforce/ticket/converse`
 
-Pellentesque mollis purus dapibus odio ultricies, nec blandit enim pulvinar. Nam in mauris pretium, hendrerit dui nec, sollicitudin ligula. Pellentesque viverra mi felis, in vehicula eros feugiat sed. Aenean semper erat et tellus iaculis, at facilisis nulla lacinia. Aenean tincidunt ac leo in porttitor. Ut quis tincidunt libero, id fermentum nunc. Nam vulputate eu eros nec euismod. Nulla nec interdum mi. Maecenas non eros tincidunt, gravida elit ornare, pharetra turpis. Vestibulum cursus a odio quis efficitur. Donec egestas pellentesque ligula at semper. Ut eu leo at tellus blandit euismod.
+### Request
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+
+### Response
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+
+## Error Logging and Alerting
+
+Send received errors for logging and alerting
 
 ### HTTP Request
 
-`POST /salesforce/ticket/error`
+Method: `POST`
 
-## /gdpr/salesforce/delete-user-data
+Endpoint: `/salesforce/ticket/error`
 
-Nullam justo purus, faucibus non semper at, eleifend et justo. Donec lobortis leo eget eros viverra rhoncus. Nam posuere massa felis, eget elementum felis placerat et. Donec eu odio sapien. Vestibulum ut ante ut eros pretium mollis. Sed sollicitudin semper augue quis condimentum. Donec sed rutrum arcu. Pellentesque suscipit dolor ut orci imperdiet, fringilla auctor nunc pellentesque. Praesent auctor risus in libero pulvinar aliquet.
+### Request
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+
+### Response
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+
+## Delete User Data
+
+Delete user related data that was receive from Salesforce
 
 ### HTTP Request
 
-`POST /gdpr/salesforce/delete-user-data`
+Method: `POST`
+
+Endpoint: `/gdpr/salesforce/delete-user-data`
+
+### Request
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+
+### Response
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
+

@@ -202,7 +202,7 @@ to the conversation. The session will end after 2 hours or when you send
 the `eventType: endSession` to the conversation.
 
 <aside class="notice">
-Remember — a conversation needs to be started first, by sending a request with the eventType **startSession** before visitor messages of type message can be sent in the conversation.
+Remember — a conversation needs to be started first, by sending a request with the eventType startSession before visitor messages can be sent in the conversation.
 </aside>
 
 ### Send a visitor message

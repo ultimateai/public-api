@@ -10,9 +10,9 @@ toc_footers:
 
 includes:
   - introduction
-  - intents
   - automation
   - suggestion
+  - intents
   - salesforce
   - errors
   - markdown
