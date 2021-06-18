@@ -310,33 +310,25 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
-          </li>
-          <li>
-            <a href="#authorization" class="toc-h1 toc-link" data-title="Authorization">Authorization</a>
-          </li>
-          <li>
-            <a href="#intent-recognition" class="toc-h1 toc-link" data-title="Intent Recognition">Intent Recognition</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
-                  </li>
-              </ul>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
             <a href="#chat-automation" class="toc-h1 toc-link" data-title="Chat Automation">Chat Automation</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#chat-automation-http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
+                    <a href="#chat-automation-authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
                   <li>
-                    <a href="#start-a-conversation" class="toc-h2 toc-link" data-title="Start a conversation">Start a conversation</a>
+                    <a href="#chat-automation-request" class="toc-h2 toc-link" data-title="Request">Request</a>
                   </li>
                   <li>
-                    <a href="#send-a-visitor-message" class="toc-h2 toc-link" data-title="Send a visitor message">Send a visitor message</a>
+                    <a href="#chat-automation-response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+                  <li>
+                    <a href="#chat-automation-usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
                   </li>
               </ul>
           </li>
@@ -344,10 +336,30 @@
             <a href="#suggestion-engine" class="toc-h1 toc-link" data-title="Suggestion Engine">Suggestion Engine</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#api-suggestions-visitor" class="toc-h2 toc-link" data-title="/api/suggestions/visitor">/api/suggestions/visitor</a>
+                    <a href="#suggestion-engine-authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
                   </li>
                   <li>
-                    <a href="#api-suggestions-agent" class="toc-h2 toc-link" data-title="/api/suggestions/agent">/api/suggestions/agent</a>
+                    <a href="#suggestion-engine-reply-suggestions-for-visitor-messages" class="toc-h2 toc-link" data-title="Reply Suggestions for Visitor messages">Reply Suggestions for Visitor messages</a>
+                  </li>
+                  <li>
+                    <a href="#suggestion-engine-send-agent-messages-to-a-conversation" class="toc-h2 toc-link" data-title="Send Agent Messages to a Conversation">Send Agent Messages to a Conversation</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#intent-recognition" class="toc-h1 toc-link" data-title="Intent Recognition">Intent Recognition</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#intent-recognition-http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-response" class="toc-h2 toc-link" data-title="Response">Response</a>
                   </li>
               </ul>
           </li>
@@ -355,13 +367,16 @@
             <a href="#ticket-automation-with-salesforce" class="toc-h1 toc-link" data-title="Ticket Automation with Salesforce">Ticket Automation with Salesforce</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#salesforce-ticket-converse" class="toc-h2 toc-link" data-title="/salesforce/ticket/converse">/salesforce/ticket/converse</a>
+                    <a href="#ticket-automation-with-salesforce-authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
                   <li>
-                    <a href="#salesforce-ticket-error" class="toc-h2 toc-link" data-title="/salesforce/ticket/error">/salesforce/ticket/error</a>
+                    <a href="#ticket-automation-with-salesforce-ticket-automation" class="toc-h2 toc-link" data-title="Ticket Automation">Ticket Automation</a>
                   </li>
                   <li>
-                    <a href="#gdpr-salesforce-delete-user-data" class="toc-h2 toc-link" data-title="/gdpr/salesforce/delete-user-data">/gdpr/salesforce/delete-user-data</a>
+                    <a href="#ticket-automation-with-salesforce-error-logging-and-alerting" class="toc-h2 toc-link" data-title="Error Logging and Alerting">Error Logging and Alerting</a>
+                  </li>
+                  <li>
+                    <a href="#ticket-automation-with-salesforce-delete-user-data" class="toc-h2 toc-link" data-title="Delete User Data">Delete User Data</a>
                   </li>
               </ul>
           </li>
@@ -372,216 +387,586 @@
             <a href="#markdown-syntax" class="toc-h1 toc-link" data-title="Markdown Syntax">Markdown Syntax</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#sub-section" class="toc-h2 toc-link" data-title="Sub Section">Sub Section</a>
+                    <a href="#markdown-syntax-sub-section" class="toc-h2 toc-link" data-title="Sub Section">Sub Section</a>
                   </li>
               </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='https://ultimate.ai'>Request a Developer Key</a></li>
+            <li><a href='https://ultimate.ai'>Request an Authorization Token</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='getting-started'>Getting Started</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+        <h1 id='introduction'>Introduction</h1>
+<p>Build your customer service solution your way with our Public APIs.</p>
 
-<p>Pellentesque mollis purus dapibus odio ultricies, nec blandit enim pulvinar. Nam in mauris pretium, hendrerit dui nec, sollicitudin ligula. Pellentesque viverra mi felis, in vehicula eros feugiat sed. Aenean semper erat et tellus iaculis, at facilisis nulla lacinia. Aenean tincidunt ac leo in porttitor. Ut quis tincidunt libero, id fermentum nunc. Nam vulputate eu eros nec euismod. Nulla nec interdum mi. Maecenas non eros tincidunt, gravida elit ornare, pharetra turpis. Vestibulum cursus a odio quis efficitur. Donec egestas pellentesque ligula at semper. Ut eu leo at tellus blandit euismod.</p>
-<h1 id='authorization'>Authorization</h1>
-<p>Requires a header named <code>authorization</code>, the value of which will be provided by ultimate.ai</p>
-<h1 id='intent-recognition'>Intent Recognition</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /api/intents</code></p>
+<p>Whether you want to build a chat bot for your own website, 
+integrate our solution into different systems to support your agents, 
+or use our named entity recognition to extract pieces of information 
+from any text data, our REST API gives you access our services,
+so you can build the solution that suits your needs.</p>
+
+<p>To get started, request you Access Token from <a href="https://ultimate.ai">here</a>.</p>
 <h1 id='chat-automation'>Chat Automation</h1>
-<p>This endpoint is used to automate chat conversations. It accepts a visitor message and responds with a bot response and attached actions. 
-A response could be a simple text reply or a dialog which includes multiple messages.
-In the current API version, the only action supported is <code>forwardToHuman</code> paramter, that flags whether the conversation should be escalated to a human (the agent owning the conversation should be changed from bot to human agent / human department). </p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /api/automation/visitor</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p>This endpoint can be used to automate chat conversations.
+It accepts a visitor message and responds with a bot reply and attached actions.
+A response could be a simple text reply or a dialog which includes multiple messages.</p>
+
+<p>In the current API version, the only action supported is the <code>forwardToHuman</code> 
+parameter, that flags whether the conversation should be escalated to a human agent.
+The agent owning the conversation should then be changed from bot to  a human agent /
+human department.</p>
+<h2 id='chat-automation-http-request'>HTTP Request</h2>
+<p>Method: <code>POST</code> </p>
+
+<p>Endpoint <code>/api/v2/automation</code></p>
+<h2 id='chat-automation-authentication'>Authentication</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>This endpoint is protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Access Athentication</a>.</p>
+
+<p>If you are a client already, contact your customer support manager to create 
+an API user for you. They will provide you with the Basic Auth Token for your user.</p>
+
+<p>If you are not a client yet, you can request a Basic Auth Token 
+to try out the API from <a href="https://ultimate.ai">here</a>.</p>
+
+<p>Once you have your Basic Auth Token, you can authorize to the API by setting 
+a header named <code>authorization</code> containing your token.</p>
+
+<aside class="notice">
+Please do not share your auth token with other users or applications 
+and don't publish them in public code repositories.
+</aside>
+<h2 id='chat-automation-request'>Request</h2>
+<p>Send your request as a JSON with MIME-type of application/json.</p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"botId"</span><span class="p">:</span><span class="s2">"1a2b3c4d5e6f7g8h9i0j1k2l"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"conversationId"</span><span class="p">:</span><span class="s2">"12345678987654321"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"eventType"</span><span class="p">:</span><span class="s2">"message"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"text"</span><span class="p">:</span><span class="s2">"Hello! My email is jane.doe@email.com"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"metaData"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"value"</span><span class="p">:</span><span class="s2">"Jane Doe"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Field</th>
 <th>Type</th>
 <th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>botId</td>
+<td><strong>botId</strong></td>
 <td>string</td>
 <td>true</td>
-<td>ID of the bot used to identify which bot sends the reply. This ID will be provided by ultimate.ai</td>
+<td>ID of the bot that will sends the reply.<br />You can find the ID of your bot in our dashboard, or talk to your Customer Success Manger.</td>
 </tr>
 <tr>
-<td>conversationId</td>
+<td><strong>conversationId</strong></td>
 <td>string</td>
 <td>true</td>
-<td>An ID used by the chat provider to identify the conversation. The chat provider can decide the format.</td>
+<td>An ID used by the chat provider to identify the conversation.<br />The chat provider can decide the format.</td>
 </tr>
 <tr>
-<td>message</td>
+<td><strong>text</strong></td>
 <td>string</td>
-<td>true if type is &#39;message&#39;</td>
-<td>The text message that the visitor typed into the chat. The message is optional if type is join. If a button was pressed, the message should be the value of the button (unless it’s a link button).</td>
+<td>true<br />if <code>eventType</code> is <code>message</code></td>
+<td>The text message that the visitor typed into the chat.<br />The text is optional if the <code>eventType</code> is <code>startSession</code> or <code>endSession</code>.<br />If a button was pressed, send the value of the button as text (unless it’s a link button).</td>
 </tr>
 <tr>
-<td>type</td>
-<td>enum [&#39;message&#39;, &#39;join&#39;]</td>
-<td>false</td>
-<td>Use type <code>join</code> when the conversation is created. The welcomeMessage will be given as a response in case there is one for the given bot. Use type <code>message</code> if sending a visitor message.</td>
+<td><strong>eventType</strong></td>
+<td>enum [<code>startSession</code>, <code>message</code>, <code>endSession</code>]</td>
+<td>true</td>
+<td>Use <code>startSession</code> when the conversation is created. The welcomeMessage will be given as a response in case there is one for the given bot.<br />Use <code>message</code> if sending a visitor message.<br />Use <code>endSession</code> to end the session. Otherwise the Session will end automatically after 2 hours.</td>
 </tr>
 <tr>
-<td>platform</td>
-<td>enum [&#39;liveAgent&#39;, &#39;giosg&#39;, &#39;liveChat&#39;, &#39;zendesk&#39;, &#39;freshchat&#39;, &#39;sap&#39;, &#39;facebook&#39;, &#39;zendeskSupport&#39;]</td>
+<td><strong>metaData</strong></td>
+<td>array[<code>MetaData</code>]</td>
 <td>false</td>
-<td>CRM Platform this chat is integrated with, if applicable.</td>
+<td>Sending metaData gives you the ability to send metadata on the user or the session of the conversation. These params will be saved on the session and can be used by the bot to personalize the conversation flows.<br /><br />Each object of type <code>MetaData</code> in the array needs to contain the following fields:<br /><strong>key</strong> <code>string</code> - name the session parameter can be referenced by to personalize a conversation<br /><strong>value</strong> <code>string</code> - value of the session parameter, note that we only support values of type string at this moment<br /><strong>sanitize</strong> <code>bool</code> - optional field, should be set as true for PII data</td>
 </tr>
 </tbody></table>
-<h2 id='start-a-conversation'>Start a conversation</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/automation/visitor'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
-  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"BOT ID PROVIDED BY ULTIMATE.AI","conversationId":"NEW CONVERSATION ID","type":"join"}'</span> <span class="se">\</span>
-  <span class="nt">--compressed</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">startConversation</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
-        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/automation/visitor</span><span class="dl">'</span><span class="p">,</span> 
-        <span class="p">{</span>
-            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
-            <span class="p">},</span>
-            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BOT ID PROVIDED BY ULTIMATE.AI</span><span class="dl">'</span><span class="p">,</span>
-                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">NEW CONVERSATION ID</span><span class="dl">'</span><span class="p">,</span>
-                <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">join</span><span class="dl">'</span>
-            <span class="p">})</span>
-        <span class="p">}</span>
-    <span class="p">);</span>
-    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">};</span>
-
-<span class="nx">startConversation</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">constole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
-    <span class="p">});</span>
-</code></pre></div>
+<h2 id='chat-automation-response'>Response</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example Response:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"confidenceThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello :)"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"forwardToHuman"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"secondMessage"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"How can I help you today?"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"predictedIntents"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>To start a conversation (ie: when the chat widget is opened) create a new <code>conversationId</code> and POST a message of type <code>join</code> with the new conversationId. 
-The API will respond with the welcomeMessage if there is a welcomeMessage defined for the given bot.</p>
-
-<p>All subsequent visitor messages sent in the chat, should use the same conversationId as the one used to start the conversation.</p>
-
-<aside class="notice">
-Remember — a conversation needs to be started first, by sending a message of type join before visitor messages of type message can be sent in the conversation.
-</aside>
-<h2 id='send-a-visitor-message'>Send a visitor message</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/automation/visitor'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
-  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"BOT ID PROVIDED BY ULTIMATE.AI","conversationId":"CONVERSATION ID","type":"message" "message": "The shoes I have ordered are damaged."}'</span> <span class="se">\</span>
-  <span class="nt">--compressed</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">sendMessage</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span>
-        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/automation/visitor</span><span class="dl">'</span><span class="p">,</span> 
-        <span class="p">{</span>
-            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
-            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
-            <span class="p">},</span>
-            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">BOT ID PROVIDED BY ULTIMATE.AI</span><span class="dl">'</span><span class="p">,</span>
-                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">CONVERSATION ID</span><span class="dl">'</span><span class="p">,</span>
-                <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span>
-                <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">The shoes I have ordered are damaged.</span><span class="dl">'</span>
-            <span class="p">})</span>
-        <span class="p">}</span>
-    <span class="p">);</span>
-    <span class="k">return</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<span class="p">};</span>
-
-<span class="nx">startConversation</span><span class="p">()</span>
-    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nx">constole</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
-    <span class="p">});</span>
-</code></pre></div>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"confidenceThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I'm sorry to hear that, that must be frustrating. When did the damage happen?"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"forwardToHuman"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"messages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Delivered damaged."</span><span class="w"> 
+            </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello Jane Doe, How can i help you today?"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"After use."</span><span class="w"> 
+            </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Type your question or select one of the options below:"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"buttons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Support"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payments"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"External link"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ultimate.ai"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"predictedIntents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer Claims"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567891"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Missing Item"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"confidenceThreshold"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"predictedIntents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ee3593d2e4a8a47573252e8"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7038699984550476</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intent Name 1 "</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f68bc4f140e681cbe8ad6ce"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.14397311210632324</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intent Name 2 "</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5eaaa247d377f1001d2628ad"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03942745178937912</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intent Name 3"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fcdf52b618b6b0015da984f"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.03256703168153763</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intent Name 4"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5d84f76a957e151f61ed5f17"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.010709668509662151</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intent Name 5"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane.doe@email.com"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>Once a <a href="#start-a-conversation">conversation was started</a> POST visitor messages with the same <code>conversationId</code> used when starting the conversation and use the message type <code>message</code> to receive an automated reply.
-The response will contain an array with the bot messages for the highest predicted intent as well as a list of predicted intents for the given visitor message. 
-Bot messages will contain the text of the reply and might also contain an array of buttons and a flag when conversations should be escalated to a human agent.</p>
+<p>The endpoint will respond with a JSON with the following format:</p>
 
-<p>When a user presses one of the given buttons, send the value of the button as a message in the conversation to continue the dialogue.</p>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>messages</strong></td>
+<td>array[<code>Message</code>]</td>
+<td>Array containing one or several messages to show to the visitor.<br /><br />Each object of type <code>Message</code> contains the following fields:<br /><strong>text</strong> <code>string</code> - Message string<br /><strong>forwardToHuman</strong> <code>bool</code> - When <code>true</code> this conversation needs to be forwarded to a human agent.<br ><strong>buttons</strong> <code>array[Button]</code> - Array of buttons to display to the visitor.<br /><strong>secondMessage</strong> <code>Message</code> <code>nullable</code> - If this message is part of a dialogue reply it can have multiple messages. <code>secondMessage</code> is of type <code>Message</code> and can again have it&#39;s own secondMessage.<br /><br />Each object of type <code>Button</code> contains the following fields:<br /><strong>text</strong> <code>string</code> - value of the button, that is shown to the visitor. When the visitor presses the button, send the <code>text</code> as a message to the chat.<br /><strong>link</strong> <code>string</code> <code>nullable</code> - URL to go to, when the button is pressed. If the button has a link, don&#39;t send its value to the chat when pressed.</td>
+</tr>
+<tr>
+<td><strong>confidenceThreshold</strong></td>
+<td>float</td>
+<td>Float value between 0 and 1 - this is the bot&#39;s confidence threshold to answer to a visitor message. If there is no intent predicted (see <code>predictedIntens</code>) above this threshold, the bolt will return the default reply.</td>
+</tr>
+<tr>
+<td><strong>predictedIntents</strong></td>
+<td>array[<code>Intent</code>]</td>
+<td>Array containing intents that were predicted for the <code>text</code> sent in the request.<br /><br />Each object of type <code>Intent</code> contains the following fields:<br /><strong>value</strong> <code>string</code> - Unique ID identifying this intent.<br /><strong>name</strong> <code>string</code> - the intent&#39;s name<br /><strong>confidence</strong> <code>float</code> - Float value between 0 and 1 - giving the confidence with which this intent was predicted for the given <code>text</code>.</td>
+</tr>
+<tr>
+<td><strong>entities</strong></td>
+<td>array [<code>Entity</code>]</td>
+<td>Array of entities that were extracted from the visitor message given in the request.<br /><br />Each object of type <code>Entity</code> will have the following fields:<br /><strong>name</strong> <code>string</code> - Name of the recognized entity<br /><strong>value</strong> <code>string</code> - the value that was extracted from the visitor message</td>
+</tr>
+</tbody></table>
+<h2 id='chat-automation-usage'>Usage</h2><h3 id='chat-automation-usage-start-a-conversation'>Start a conversation</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"{conversationId}","eventType":"startSession"}'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">startConversation</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{conversationId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">eventType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">startSession</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
 
-<p>In case you are escalating the conversation to a human agent use the <a href="#api-suggestions-agent">suggestions/agent endpoint</a> to send the agent&#39;s messages to the conversation.</p>
-<h1 id='suggestion-engine'>Suggestion Engine</h1><h2 id='api-suggestions-visitor'>/api/suggestions/visitor</h2>
-<p>Sed ac lectus eros. Ut sit amet bibendum lorem. Maecenas vel molestie ex. Suspendisse at ipsum quis tellus vehicula molestie gravida nec orci. Praesent feugiat dui quis elit fringilla, sit amet bibendum nibh elementum. Sed luctus nec ex ut egestas. Duis nulla enim, ornare rhoncus consectetur sit amet, vehicula eu nunc. Quisque laoreet ipsum nisi. In pellentesque tellus orci, ut porttitor lacus tempus vel. Aliquam pharetra laoreet purus, ac tincidunt lectus dignissim eu. Phasellus imperdiet tincidunt pulvinar. Aliquam vitae nisi mi. Aliquam ut dolor consectetur, vestibulum nunc non, blandit augue. Pellentesque sit amet fermentum dolor. Sed quis porttitor massa, id sagittis mi.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /api/suggestions/visitor</code></p>
-<h2 id='api-suggestions-agent'>/api/suggestions/agent</h2>
-<p>Aliquam erat volutpat. Nunc commodo dapibus molestie. Integer eu erat dictum, efficitur ante at, euismod ex. Ut id erat finibus, suscipit nisl quis, pharetra ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam vulputate in turpis sed auctor. Maecenas cursus dictum risus eu mollis. Nunc molestie efficitur tellus, et dictum erat accumsan eu. In sagittis metus neque, vel aliquam felis tincidunt nec.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /api/suggestions/agent</code></p>
-<h1 id='ticket-automation-with-salesforce'>Ticket Automation with Salesforce</h1><h2 id='salesforce-ticket-converse'>/salesforce/ticket/converse</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /salesforce/ticket/converse</code></p>
-<h2 id='salesforce-ticket-error'>/salesforce/ticket/error</h2>
-<p>Pellentesque mollis purus dapibus odio ultricies, nec blandit enim pulvinar. Nam in mauris pretium, hendrerit dui nec, sollicitudin ligula. Pellentesque viverra mi felis, in vehicula eros feugiat sed. Aenean semper erat et tellus iaculis, at facilisis nulla lacinia. Aenean tincidunt ac leo in porttitor. Ut quis tincidunt libero, id fermentum nunc. Nam vulputate eu eros nec euismod. Nulla nec interdum mi. Maecenas non eros tincidunt, gravida elit ornare, pharetra turpis. Vestibulum cursus a odio quis efficitur. Donec egestas pellentesque ligula at semper. Ut eu leo at tellus blandit euismod.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /salesforce/ticket/error</code></p>
-<h2 id='gdpr-salesforce-delete-user-data'>/gdpr/salesforce/delete-user-data</h2>
-<p>Nullam justo purus, faucibus non semper at, eleifend et justo. Donec lobortis leo eget eros viverra rhoncus. Nam posuere massa felis, eget elementum felis placerat et. Donec eu odio sapien. Vestibulum ut ante ut eros pretium mollis. Sed sollicitudin semper augue quis condimentum. Donec sed rutrum arcu. Pellentesque suscipit dolor ut orci imperdiet, fringilla auctor nunc pellentesque. Praesent auctor risus in libero pulvinar aliquet.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST /gdpr/salesforce/delete-user-data</code></p>
+<span class="nx">startConversation</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<p>To start a new conversation (ie: when the chat widget is opened) 
+create a new <code>conversationId</code> of type <code>string</code>. This ID needs to be unique 
+to identify the conversation, but the format of it is up to you.
+All subsequent visitor messages sent in the conversation, should use the same 
+<code>conversationId</code> as the one used to start the conversation.</p>
+
+<p>Send a <code>POST</code> request with your <code>conversationId</code>, your <code>botId</code> and the
+<code>eventType: startSession</code> to start the conversation session.</p>
+
+<p>The API will respond with a welcome message if there is a welcome message 
+defined for the given bot. Otherwise the <code>messages</code> array in the response 
+will be empty.</p>
+
+<p>Once you have started a conversation session, you can start sending visitor messages
+to the conversation. The session will end after 2 hours or when you send 
+the <code>eventType: endSession</code> to the conversation.</p>
+
+<aside class="notice">
+Remember — a conversation needs to be started first, by sending a request with the eventType startSession before visitor messages can be sent in the conversation.
+</aside>
+<h3 id='chat-automation-usage-send-a-visitor-message'>Send a visitor message</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"${conversationId}","eventType":"message" "text": "Hello! My email is jane.doe@email.com"}, metaData: [{"key": "name", "value": "Jane Doe"}]'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">sendMessage</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{conversationId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">eventType</span><span class="p">:</span><span class="dl">'</span><span class="s1">message</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">text</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hello! My email is jane.doe@email.com</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">metaData</span><span class="p">:[</span>
+                  <span class="p">{</span>
+                    <span class="na">key</span><span class="p">:</span><span class="dl">'</span><span class="s1">name</span><span class="dl">'</span><span class="p">,</span>
+                    <span class="na">value</span><span class="p">:</span><span class="dl">'</span><span class="s1">Jane Doe</span><span class="dl">'</span>
+                  <span class="p">}</span>
+               <span class="p">]</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+<span class="nx">sendMessage</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<p>Once you have started a conversation session, you can start sending visitor messages 
+with the same <code>conversationId</code> used when starting the conversation.</p>
+
+<p>Use the <code>eventType: message</code> to send a visitor message receive an automated reply.</p>
+
+<p>The response will contain an array with the bot messages for the highest predicted 
+intent as well as a list of predicted intents for the given visitor message.</p>
+
+<p>Bot messages will contain the text of the reply and might also contain an array of 
+buttons and the flag <code>forwardToHuman</code> when conversations should be escalated 
+to a human agent.</p>
+
+<p>When a user presses one of the given buttons, send the value of the button 
+as a message in the conversation to continue the dialogue. 
+If the button has a link, the visitor should be redirected to the link address, 
+the dialogue will not continue in this case. </p>
+
+<p>In case you are escalating the conversation to a human agent, 
+use our <a href="#suggestion-engine">Suggestion Engine</a> to support your agents by suggesting
+replies and sending the agent&#39;s messages to the conversation session.</p>
+<h3 id='chat-automation-usage-end-a-conversation'>End a conversation</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"{conversationId}","eventType":"endSession"}'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">endConversation</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{conversationId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">eventType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">endSession</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+<span class="nx">endConversation</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
+<p>To end new conversation (ie: when the visitor leaves the page) 
+send a request with the  <code>eventType: endSession</code>. </p>
+
+<p>If the conversation does not end with a <code>endSession</code> event, it will automatically
+end after 2 hours. </p>
+<h1 id='suggestion-engine'>Suggestion Engine</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h2 id='suggestion-engine-authorization'>Authorization</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/intent'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {accessToken}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/api/intents</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{accessToken}</span><span class="dl">'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>To use our Suggestion Engine API a header named <code>authorization</code> needs to be set.</p>
+
+<p>You can find your access token in the dashboard in your bots settings under &quot;Tokens&quot;.</p>
+
+<p>If you are not a client yet, you request your Access Token to try out the API from 
+<a href="https://ultimate.ai">here</a>.</p>
+
+<aside class="notice">
+Please do not share your access tokens with other users or applications and 
+don't publish them in public code repositories.
+</aside>
+<h2 id='suggestion-engine-reply-suggestions-for-visitor-messages'>Reply Suggestions for Visitor messages</h2><h3 id='suggestion-engine-reply-suggestions-for-visitor-messages-http-request'>HTTP Request</h3>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/api/suggestions/visitor</code></p>
+<h3 id='suggestion-engine-reply-suggestions-for-visitor-messages-request'>Request</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='suggestion-engine-reply-suggestions-for-visitor-messages-response'>Response</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h2 id='suggestion-engine-send-agent-messages-to-a-conversation'>Send Agent Messages to a Conversation</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='suggestion-engine-send-agent-messages-to-a-conversation-http-request'>HTTP Request</h3>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/api/suggestions/agent</code></p>
+<h3 id='suggestion-engine-send-agent-messages-to-a-conversation-request'>Request</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='suggestion-engine-send-agent-messages-to-a-conversation-response'>Response</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h1 id='intent-recognition'>Intent Recognition</h1>
+<p>Send a visitor message from a chat or any type of text to get a 
+list of matching intents with their confidences as well as a list of 
+entities we extracted from the text. 
+Use this endpoint to classify or label any piece of text.</p>
+<h2 id='intent-recognition-http-request'>HTTP Request</h2>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/api/intents</code></p>
+<h2 id='intent-recognition-authorization'>Authorization</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/intent'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {accessToken}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/api/intents</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{accessToken}</span><span class="dl">'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>To use our Intent Recognition API a header named <code>authorization</code> needs to be set.</p>
+
+<p>You can find your access token in the dashboard in your bots settings under &quot;Tokens&quot;.</p>
+
+<p>If you are not a client yet, you request your Access Token to try out the API from 
+<a href="https://ultimate.ai">here</a>.</p>
+
+<aside class="notice">
+Please do not share your access tokens with other users or applications and don't publish them in public code repositories.
+</aside>
+<h2 id='intent-recognition-request'>Request</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h2 id='intent-recognition-response'>Response</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h1 id='ticket-automation-with-salesforce'>Ticket Automation with Salesforce</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h2 id='ticket-automation-with-salesforce-authentication'>Authentication</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>This endpoint is protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Access Athentication</a>.</p>
+
+<p>If you are a client already, contact your customer support manager to create 
+an API user for you. They will provide you with the Basic Auth Token for your user.</p>
+
+<p>If you are not a client yet, you can request a Basic Auth Token 
+to try out the API from <a href="https://ultimate.ai">here</a>.</p>
+
+<p>Once you have your Basic Auth Token, you can authorize to the API by setting 
+a header named <code>authorization</code> containing your token.</p>
+
+<aside class="notice">
+Please do not share your auth token with other users or applications 
+and don't publish them in public code repositories.
+</aside>
+<h2 id='ticket-automation-with-salesforce-ticket-automation'>Ticket Automation</h2>
+<p>Send a visitor’s email to receive matching intents with confidences and SF ticket parameters.</p>
+<h3 id='ticket-automation-with-salesforce-ticket-automation-http-request'>HTTP Request</h3>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/salesforce/ticket/converse</code></p>
+<h3 id='ticket-automation-with-salesforce-ticket-automation-request'>Request</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='ticket-automation-with-salesforce-ticket-automation-response'>Response</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h2 id='ticket-automation-with-salesforce-error-logging-and-alerting'>Error Logging and Alerting</h2>
+<p>Send received errors for logging and alerting</p>
+<h3 id='ticket-automation-with-salesforce-error-logging-and-alerting-http-request'>HTTP Request</h3>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/salesforce/ticket/error</code></p>
+<h3 id='ticket-automation-with-salesforce-error-logging-and-alerting-request'>Request</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='ticket-automation-with-salesforce-error-logging-and-alerting-response'>Response</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h2 id='ticket-automation-with-salesforce-delete-user-data'>Delete User Data</h2>
+<p>Delete user related data that was receive from Salesforce</p>
+<h3 id='ticket-automation-with-salesforce-delete-user-data-http-request'>HTTP Request</h3>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/gdpr/salesforce/delete-user-data</code></p>
+<h3 id='ticket-automation-with-salesforce-delete-user-data-request'>Request</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
+<h3 id='ticket-automation-with-salesforce-delete-user-data-response'>Response</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
+sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
+Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
+pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
+quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
+Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
+erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
+at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -645,7 +1030,7 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 Please make sure to remove this section from the list includes in <code>source/index.htl.md</code> before we publish.</p>
 
 <p>You can find more information in the <a href="https://calendar.google.com/calendar/u/0/r?tab=kc&amp;pli=1">Slate Wiki</a>.</p>
-<h2 id='sub-section'>Sub Section</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://my-api.com/endpoint"</span> <span class="se">\</span>
+<h2 id='markdown-syntax-sub-section'>Sub Section</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://my-api.com/endpoint"</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'authorization: API_TOKEN'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{"parameter":"value"}'</span> <span class="se">\</span>
@@ -688,7 +1073,7 @@ Please make sure to remove this section from the list includes in <code>source/i
 </span></code></pre></div>
 <p>This section will also appear as an element in the navigation.
 There are two code examples for this sub section. if you want to display more tabs with other languages, add them to the list of languages in <code>source/index.html.md</code> and then add code examples for those languages where they are needed.</p>
-<h3 id='sub-sub-section-i'>Sub Sub Section I</h3>
+<h3 id='markdown-syntax-sub-section-sub-sub-section-i'>Sub Sub Section I</h3>
 <p>This headline can be used to divide your documentation into several sections, that won&#39;t be listed separately in the navigation.</p>
 
 <aside class="notice">
@@ -702,7 +1087,7 @@ A Success Message
 <aside class="warning">
 A Warning
 </aside>
-<h3 id='sub-sub-section-ii'>Sub Sub Section II</h3>
+<h3 id='markdown-syntax-sub-section-sub-sub-section-ii'>Sub Sub Section II</h3>
 <table><thead>
 <tr>
 <th>Column 1</th>
