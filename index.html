@@ -375,9 +375,6 @@
                   <li>
                     <a href="#ticket-automation-with-salesforce-error-logging-and-alerting" class="toc-h2 toc-link" data-title="Error Logging and Alerting">Error Logging and Alerting</a>
                   </li>
-                  <li>
-                    <a href="#ticket-automation-with-salesforce-delete-user-data" class="toc-h2 toc-link" data-title="Delete User Data">Delete User Data</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -408,7 +405,7 @@ or use our named entity recognition to extract pieces of information
 from any text data, our REST API gives you access our services,
 so you can build the solution that suits your needs.</p>
 
-<p>To get started, request you Access Token from <a href="https://ultimate.ai">here</a>.</p>
+<p>To get started, request your Access Token from <a href="https://ultimate.ai">here</a>.</p>
 <h1 id='chat-automation'>Chat Automation</h1>
 <p>This endpoint can be used to automate chat conversations.
 It accepts a visitor message and responds with a bot reply and attached actions.
@@ -423,26 +420,28 @@ human department.</p>
 
 <p>Endpoint <code>/api/v2/automation</code></p>
 <h2 id='chat-automation-authentication'>Authentication</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
     <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span> 
     <span class="p">{</span>
         <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+            <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
         <span class="p">},</span>
     <span class="p">}</span>
 <span class="p">);</span>
 </code></pre></div>
 <p>This endpoint is protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Access Athentication</a>.</p>
 
-<p>If you are a client already, contact your customer support manager to create 
-an API user for you. They will provide you with the Basic Auth Token for your user.</p>
+<p>If you are a client already, you can create your basic access token by generating a 
+<a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded string using your email and password 
+joined by a colon: <code>jane.doe@email.com:janesPassword</code></p>
 
-<p>If you are not a client yet, you can request a Basic Auth Token 
-to try out the API from <a href="https://ultimate.ai">here</a>.</p>
+<p>If you are not a client yet, you can request access to try out the API from 
+<a href="https://ultimate.ai">here</a>.</p>
 
 <p>Once you have your Basic Auth Token, you can authorize to the API by setting 
-a header named <code>authorization</code> containing your token.</p>
+a header named <code>Authorization</code> containing your token in the form of 
+<code>Basic {basicAuthToken}</code>.</p>
 
 <aside class="notice">
 Please do not share your auth token with other users or applications 
@@ -580,7 +579,7 @@ and don't publish them in public code repositories.
 <tr>
 <td><strong>messages</strong></td>
 <td>array[<code>Message</code>]</td>
-<td>Array containing one or several messages to show to the visitor.<br /><br />Each object of type <code>Message</code> contains the following fields:<br /><strong>text</strong> <code>string</code> - Message string<br /><strong>forwardToHuman</strong> <code>bool</code> - When <code>true</code> this conversation needs to be forwarded to a human agent.<br ><strong>buttons</strong> <code>array[Button]</code> - Array of buttons to display to the visitor.<br /><strong>secondMessage</strong> <code>Message</code> <code>nullable</code> - If this message is part of a dialogue reply it can have multiple messages. <code>secondMessage</code> is of type <code>Message</code> and can again have it&#39;s own secondMessage.<br /><br />Each object of type <code>Button</code> contains the following fields:<br /><strong>text</strong> <code>string</code> - value of the button, that is shown to the visitor. When the visitor presses the button, send the <code>text</code> as a message to the chat.<br /><strong>link</strong> <code>string</code> <code>nullable</code> - URL to go to, when the button is pressed. If the button has a link, don&#39;t send its value to the chat when pressed.</td>
+<td>Array containing one or several messages to show to the visitor.<br /><br />Each object of type <code>Message</code> contains the following fields:<br /><strong>text</strong> <code>string</code> - Message string<br /><strong>forwardToHuman</strong> <code>bool</code> - When <code>true</code> this conversation needs to be forwarded to a human agent.<br ><strong>buttons</strong> <code>array[Button]</code> - Array of buttons to display to the visitor.<br /><br />Each object of type <code>Button</code> contains the following fields:<br /><strong>text</strong> <code>string</code> - value of the button, that is shown to the visitor. When the visitor presses the button, send the <code>text</code> as a message to the chat.<br /><strong>link</strong> <code>string</code> <code>nullable</code> - URL to go to, when the button is pressed. If the button has a link, don&#39;t send its value to the chat when pressed.</td>
 </tr>
 <tr>
 <td><strong>confidenceThreshold</strong></td>
@@ -599,7 +598,7 @@ and don't publish them in public code repositories.
 </tr>
 </tbody></table>
 <h2 id='chat-automation-usage'>Usage</h2><h3 id='chat-automation-usage-start-a-conversation'>Start a conversation</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"{conversationId}","eventType":"startSession"}'</span> <span class="se">\</span>
   <span class="nt">--compressed</span>
@@ -609,7 +608,7 @@ and don't publish them in public code repositories.
             <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
             <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
-                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+                <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
             <span class="p">},</span>
             <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
                 <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
@@ -645,7 +644,7 @@ the <code>eventType: endSession</code> to the conversation.</p>
 Remember — a conversation needs to be started first, by sending a request with the eventType startSession before visitor messages can be sent in the conversation.
 </aside>
 <h3 id='chat-automation-usage-send-a-visitor-message'>Send a visitor message</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"${conversationId}","eventType":"message" "text": "Hello! My email is jane.doe@email.com"}, metaData: [{"key": "name", "value": "Jane Doe"}]'</span> <span class="se">\</span>
   <span class="nt">--compressed</span>
@@ -655,7 +654,7 @@ Remember — a conversation needs to be started first, by sending a request with
             <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
             <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
-                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+                <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
             <span class="p">},</span>
             <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
                 <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
@@ -698,7 +697,7 @@ the dialogue will not continue in this case. </p>
 use our <a href="#suggestion-engine">Suggestion Engine</a> to support your agents by suggesting
 replies and sending the agent&#39;s messages to the conversation session.</p>
 <h3 id='chat-automation-usage-end-a-conversation'>End a conversation</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span>
   <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
   <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"{conversationId}","eventType":"endSession"}'</span> <span class="se">\</span>
   <span class="nt">--compressed</span>
@@ -708,7 +707,7 @@ replies and sending the agent&#39;s messages to the conversation session.</p>
             <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
             <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
                 <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
-                <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+                <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
             <span class="p">},</span>
             <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
                 <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
@@ -723,11 +722,12 @@ replies and sending the agent&#39;s messages to the conversation session.</p>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">});</span>
 </code></pre></div>
-<p>To end new conversation (ie: when the visitor leaves the page) 
-send a request with the  <code>eventType: endSession</code>. </p>
+<p>To end new conversation (ie: when the visitor closes the chat widget, leaves the page, 
+or any other event that should end the conversation session) send a request with 
+the <code>eventType: endSession</code>. </p>
 
-<p>If the conversation does not end with a <code>endSession</code> event, it will automatically
-end after 2 hours. </p>
+<p>If the conversation does not end with the <code>endSession</code> event, it will automatically
+end after 2 hours.</p>
 <h1 id='suggestion-engine'>Suggestion Engine</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
 sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
@@ -870,26 +870,28 @@ Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhon
 erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
 at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
 <h2 id='ticket-automation-with-salesforce-authentication'>Authentication</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
     <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/v2/automation</span><span class="dl">'</span><span class="p">,</span> 
     <span class="p">{</span>
         <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+            <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
         <span class="p">},</span>
     <span class="p">}</span>
 <span class="p">);</span>
 </code></pre></div>
 <p>This endpoint is protected by <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">Basic Access Athentication</a>.</p>
 
-<p>If you are a client already, contact your customer support manager to create 
-an API user for you. They will provide you with the Basic Auth Token for your user.</p>
+<p>If you are a client already, you can create your basic access token by generating a 
+<a href="https://en.wikipedia.org/wiki/Base64">Base64</a> encoded string using your email and password 
+joined by a colon: <code>jane.doe@email.com:janesPassword</code></p>
 
-<p>If you are not a client yet, you can request a Basic Auth Token 
-to try out the API from <a href="https://ultimate.ai">here</a>.</p>
+<p>If you are not a client yet, you can request access to try out the API from 
+<a href="https://ultimate.ai">here</a>.</p>
 
 <p>Once you have your Basic Auth Token, you can authorize to the API by setting 
-a header named <code>authorization</code> containing your token.</p>
+a header named <code>Authorization</code> containing your token in the form of 
+<code>Basic {basicAuthToken}</code>.</p>
 
 <aside class="notice">
 Please do not share your auth token with other users or applications 
@@ -935,30 +937,6 @@ Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhon
 erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
 at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
 <h3 id='ticket-automation-with-salesforce-error-logging-and-alerting-response'>Response</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
-sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
-Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
-pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
-quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
-Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
-erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
-at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
-<h2 id='ticket-automation-with-salesforce-delete-user-data'>Delete User Data</h2>
-<p>Delete user related data that was receive from Salesforce</p>
-<h3 id='ticket-automation-with-salesforce-delete-user-data-http-request'>HTTP Request</h3>
-<p>Method: <code>POST</code></p>
-
-<p>Endpoint: <code>/gdpr/salesforce/delete-user-data</code></p>
-<h3 id='ticket-automation-with-salesforce-delete-user-data-request'>Request</h3>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
-sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
-Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
-pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
-quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
-Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
-erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
-at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.</p>
-<h3 id='ticket-automation-with-salesforce-delete-user-data-response'>Response</h3>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
 sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
 Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
