@@ -13,7 +13,7 @@ at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
 
 ```shell
 curl 'https://chat.ultimate.ai/api/v2/automation' \
-  -H 'authorization: {basicAuthToken}'
+  -H 'Authorization: Basic {basicAuthToken}'
 ```
 
 ```javascript
@@ -21,21 +21,23 @@ fetch(
     'https://chat.ultimate.ai/api/v2/automation', 
     {
         headers: {
-            'authorization': '{basicAuthToken}'
+            'Authorization': 'Basic {basicAuthToken}'
         },
     }
 );
 ```
 This endpoint is protected by [Basic Access Athentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
 
-If you are a client already, contact your customer support manager to create 
-an API user for you. They will provide you with the Basic Auth Token for your user.
+If you are a client already, you can create your basic access token by generating a 
+[Base64](https://en.wikipedia.org/wiki/Base64) encoded string using your email and password 
+joined by a colon: `jane.doe@email.com:janesPassword`
 
-If you are not a client yet, you can request a Basic Auth Token 
-to try out the API from [here](https://ultimate.ai).
+If you are not a client yet, you can request access to try out the API from 
+[here](https://ultimate.ai).
 
 Once you have your Basic Auth Token, you can authorize to the API by setting 
-a header named `authorization` containing your token.
+a header named `Authorization` containing your token in the form of 
+`Basic {basicAuthToken}`.
 
 <aside class="notice">
 Please do not share your auth token with other users or applications 
@@ -105,36 +107,3 @@ quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor
 Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
 erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
 at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
-
-## Delete User Data
-
-Delete user related data that was receive from Salesforce
-
-### HTTP Request
-
-Method: `POST`
-
-Endpoint: `/gdpr/salesforce/delete-user-data`
-
-### Request
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
-sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
-Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
-pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
-quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
-Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
-erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
-at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
-
-### Response
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris scelerisque magna eu 
-sapien rutrum euismod. Praesent est urna, hendrerit vitae luctus non, mollis non odio. 
-Suspendisse potenti. Pellentesque pharetra ultrices lectus, sit amet accumsan justo 
-pellentesque pretium. Quisque et mattis leo, ut elementum magna. Praesent at placerat 
-quam. Ut tellus quam, consectetur quis metus sit amet, fermentum suscipit tortor. 
-Donec elit elit, pellentesque a turpis a, porttitor auctor metus. Fusce non rhoncus 
-erat, quis placerat tortor. Morbi molestie porta purus et consequat. Aliquam laoreet 
-at leo fermentum ornare. Fusce ut lobortis tortor, in tincidunt purus.
-

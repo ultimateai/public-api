@@ -8,4 +8,4 @@ or use our named entity recognition to extract pieces of information
 from any text data, our REST API gives you access our services,
 so you can build the solution that suits your needs.
 
-To get started, request you Access Token from [here](https://ultimate.ai).
+To get started, request your Access Token from [here](https://ultimate.ai).

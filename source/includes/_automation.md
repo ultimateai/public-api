@@ -19,7 +19,7 @@ Endpoint `/api/v2/automation`
 
 ```shell
 curl 'https://chat.ultimate.ai/api/v2/automation' \
-  -H 'authorization: {basicAuthToken}'
+  -H 'Authorization: Basic {basicAuthToken}'
 ```
 
 ```javascript
@@ -27,21 +27,23 @@ fetch(
     'https://chat.ultimate.ai/api/v2/automation', 
     {
         headers: {
-            'authorization': '{basicAuthToken}'
+            'Authorization': 'Basic {basicAuthToken}'
         },
     }
 );
 ```
 This endpoint is protected by [Basic Access Athentication](https://en.wikipedia.org/wiki/Basic_access_authentication).
 
-If you are a client already, contact your customer support manager to create 
-an API user for you. They will provide you with the Basic Auth Token for your user.
+If you are a client already, you can create your basic access token by generating a 
+[Base64](https://en.wikipedia.org/wiki/Base64) encoded string using your email and password 
+joined by a colon: `jane.doe@email.com:janesPassword`
 
-If you are not a client yet, you can request a Basic Auth Token 
-to try out the API from [here](https://ultimate.ai).
+If you are not a client yet, you can request access to try out the API from 
+[here](https://ultimate.ai).
 
 Once you have your Basic Auth Token, you can authorize to the API by setting 
-a header named `authorization` containing your token.
+a header named `Authorization` containing your token in the form of 
+`Basic {basicAuthToken}`.
 
 <aside class="notice">
 Please do not share your auth token with other users or applications 
@@ -145,7 +147,7 @@ The endpoint will respond with a JSON with the following format:
 
 Field | Type  | Description
 ---------- | ---------- | ------------------------------
-**messages** | array[`Message`] | Array containing one or several messages to show to the visitor.<br /><br />Each object of type `Message` contains the following fields:<br />**text** `string` - Message string<br />**forwardToHuman** `bool` - When `true` this conversation needs to be forwarded to a human agent.<br >**buttons** `array[Button]` - Array of buttons to display to the visitor.<br />**secondMessage** `Message` `nullable` - If this message is part of a dialogue reply it can have multiple messages. `secondMessage` is of type `Message` and can again have it's own secondMessage.<br /><br />Each object of type `Button` contains the following fields:<br />**text** `string` - value of the button, that is shown to the visitor. When the visitor presses the button, send the `text` as a message to the chat.<br />**link** `string` `nullable` - URL to go to, when the button is pressed. If the button has a link, don't send its value to the chat when pressed.
+**messages** | array[`Message`] | Array containing one or several messages to show to the visitor.<br /><br />Each object of type `Message` contains the following fields:<br />**text** `string` - Message string<br />**forwardToHuman** `bool` - When `true` this conversation needs to be forwarded to a human agent.<br >**buttons** `array[Button]` - Array of buttons to display to the visitor.<br /><br />Each object of type `Button` contains the following fields:<br />**text** `string` - value of the button, that is shown to the visitor. When the visitor presses the button, send the `text` as a message to the chat.<br />**link** `string` `nullable` - URL to go to, when the button is pressed. If the button has a link, don't send its value to the chat when pressed.
 **confidenceThreshold** | float | Float value between 0 and 1 - this is the bot's confidence threshold to answer to a visitor message. If there is no intent predicted (see `predictedIntens`) above this threshold, the bolt will return the default reply.
 **predictedIntents** | array[`Intent`] | Array containing intents that were predicted for the `text` sent in the request.<br /><br />Each object of type `Intent` contains the following fields:<br />**value** `string` - Unique ID identifying this intent.<br />**name** `string` - the intent's name<br />**confidence** `float` - Float value between 0 and 1 - giving the confidence with which this intent was predicted for the given `text`.  
 **entities** | array [`Entity`] |  Array of entities that were extracted from the visitor message given in the request.<br /><br />Each object of type `Entity` will have the following fields:<br />**name** `string` - Name of the recognized entity<br />**value** `string` - the value that was extracted from the visitor message
@@ -155,7 +157,7 @@ Field | Type  | Description
 
 ```shell
 curl 'https://chat.ultimate.ai/api/v2/automation' \
-  -H 'authorization: {basicAuthToken}'
+  -H 'Authorization: Basic {basicAuthToken}'
   -H 'content-type: application/json;charset=UTF-8' \
   --data-raw '{"botId":"{botId}","conversationId":"{conversationId}","eventType":"startSession"}' \
   --compressed
@@ -168,7 +170,7 @@ const startConversation = fetch(
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': '{basicAuthToken}'
+                'Authorization': 'Basic {basicAuthToken}'
             },
             body: JSON.stringify({
                 botId: '{botId}',
@@ -209,7 +211,7 @@ Remember — a conversation needs to be started first, by sending a request with
 
 ```shell
 curl 'https://chat.ultimate.ai/api/v2/automation' \
-  -H 'authorization: {basicAuthToken}'
+  -H 'Authorization: Basic {basicAuthToken}'
   -H 'content-type: application/json;charset=UTF-8' \
   --data-raw '{"botId":"{botId}","conversationId":"${conversationId}","eventType":"message" "text": "Hello! My email is jane.doe@email.com"}, metaData: [{"key": "name", "value": "Jane Doe"}]' \
   --compressed
@@ -222,7 +224,7 @@ const sendMessage = fetch(
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': '{basicAuthToken}'
+                'Authorization': 'Basic {basicAuthToken}'
             },
             body: JSON.stringify({
                 botId: '{botId}',
@@ -270,7 +272,7 @@ replies and sending the agent's messages to the conversation session.
 
 ```shell
 curl 'https://chat.ultimate.ai/api/v2/automation' \
-  -H 'authorization: {basicAuthToken}'
+  -H 'Authorization: Basic {basicAuthToken}'
   -H 'content-type: application/json;charset=UTF-8' \
   --data-raw '{"botId":"{botId}","conversationId":"{conversationId}","eventType":"endSession"}' \
   --compressed
@@ -283,7 +285,7 @@ const endConversation = fetch(
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': '{basicAuthToken}'
+                'Authorization': 'Basic {basicAuthToken}'
             },
             body: JSON.stringify({
                 botId: '{botId}',
@@ -299,8 +301,9 @@ endConversation()
     });
 ```
 
-To end new conversation (ie: when the visitor leaves the page) 
-send a request with the  `eventType: endSession`. 
+To end new conversation (ie: when the visitor closes the chat widget, leaves the page, 
+or any other event that should end the conversation session) send a request with 
+the `eventType: endSession`. 
 
-If the conversation does not end with a `endSession` event, it will automatically
-end after 2 hours. 
+If the conversation does not end with the `endSession` event, it will automatically
+end after 2 hours.
