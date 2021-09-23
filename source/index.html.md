@@ -8,6 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 includes:
   - introduction
   - automation
+  - intents
 
 search: true
 
