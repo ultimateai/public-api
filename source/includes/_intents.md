@@ -13,13 +13,13 @@ Endpoint: `/api/intents`
 
 ## Authorization
 ```shell
-curl 'https://chat.ultimate.ai/api/intent' \
+curl 'https://chat.ultimate.ai/api/intents' \
   -H 'authorization: {accessToken}'
 ```
 
 ```javascript
 fetch(
-    'https://chat.ultimate.ai/api/api/intents', 
+    'https://chat.ultimate.ai/api/intents', 
     {
         headers: {
             'authorization': '{accessToken}'
@@ -108,7 +108,6 @@ Field | Type  | Description
 **entities** | array [`Entity`] |  Array of entities that were recognized from the visitor message given in the request.<br /><br />Each object of type `Entity` will have the following fields:<br />**name** `string` - Name of the recognized entity<br />**confidence** `float` - Float value between 0 and 1 - giving the confidence with which this entity was recognized for the given `message`.<br />**form** `string` - Form of the entity recognized in the given `message`.<br />**index** `number` - TODO Index of the entity recognized.<br />**id** `number` - Identifier of the entity recognized.<br />**sanitize** `boolean` - Boolean marking if entity is sanitized.
 
 ## Usage
-### Start a conversation
 
 ```shell
 curl 'https://chat.ultimate.ai/api/intents' \
@@ -120,7 +119,7 @@ curl 'https://chat.ultimate.ai/api/intents' \
 
 ```javascript
 const getIntents = fetch(
-        'https://chat.ultimate.ai/api/v2/automation',
+        'https://chat.ultimate.ai/api/intents',
         {
             method: 'POST',
             headers: {
