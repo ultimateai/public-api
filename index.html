@@ -332,6 +332,26 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#intent-recognition" class="toc-h1 toc-link" data-title="Intent Recognition">Intent Recognition</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#intent-recognition-http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+                  <li>
+                    <a href="#intent-recognition-usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -669,7 +689,160 @@ the <code>eventType: endSession</code>. </p>
 
 <p>If the conversation does not end with the <code>endSession</code> event, it will automatically
 end after 2 hours.</p>
+<h1 id='intent-recognition'>Intent Recognition</h1>
+<p>Send a visitor message from a chat or any type of text to get a 
+list of matching intents with their confidences as well as a list of 
+entities we extracted from the text. 
+Use this endpoint to classify or label any piece of text.</p>
+<h2 id='intent-recognition-http-request'>HTTP Request</h2>
+<p>Method: <code>POST</code></p>
 
+<p>Endpoint: <code>/api/intents</code></p>
+<h2 id='intent-recognition-authorization'>Authorization</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/intents'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {accessToken}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/intents</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{accessToken}</span><span class="dl">'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>To use our Intent Recognition API a header named <code>authorization</code> needs to be set.</p>
+
+<p>You can find your access token in the dashboard in your bots settings under &quot;Tokens&quot;.</p>
+
+<p>If you are not a client yet, you request your Access Token to try out the API from 
+<a href="https://ultimate.ai">here</a>.</p>
+
+<aside class="notice">
+Please do not share your access tokens with other users or applications and don't publish them in public code repositories.
+</aside>
+<h2 id='intent-recognition-request'>Request</h2>
+<p>Send your request as a JSON with MIME-type of application/json.</p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"botId"</span><span class="p">:</span><span class="s2">"1a2b3c4d5e6f7g8h9i0j1k2l"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"this is a message"</span><span class="p">,</span><span class="w"> 
+   </span><span class="nl">"conversationId"</span><span class="p">:</span><span class="s2">"12345678987654321"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>botId</strong></td>
+<td>string</td>
+<td>true</td>
+<td>ID of the bot that will sends the reply.<br />You can find the ID of your bot in our dashboard, or talk to your Customer Success Manger.</td>
+</tr>
+<tr>
+<td><strong>message</strong></td>
+<td>string</td>
+<td>true</td>
+<td>The text message that the visitor typed into the chat.</td>
+</tr>
+<tr>
+<td><strong>conversationId</strong></td>
+<td>string</td>
+<td>false</td>
+<td>An ID used by the chat provider to identify the conversation.<br />The chat provider can decide the format.</td>
+</tr>
+</tbody></table>
+<h2 id='intent-recognition-response'>Response</h2>
+<blockquote>
+<p>Example Response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"intents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.64636783599853516</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intent A"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.54660784006118774</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intent B"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.34867138862609863</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intent C"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1374831646680832</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intent D"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1208697184920311</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"intent E"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"entities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"form"</span><span class="p">:</span><span class="w"> </span><span class="s2">"name.surname@mail.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"index"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"610abae77bf221077b4fc51e"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sanitize"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>The endpoint will respond with a JSON with the following format:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>intents</strong></td>
+<td>array[<code>Intent</code>]</td>
+<td>Array containing intents that were predicted for the <code>message</code> sent in the request.<br /><br />Each object of type <code>Intent</code> contains the following fields:<br /><strong>name</strong> <code>string</code> - the intent&#39;s name<br /><strong>confidence</strong> <code>float</code> - Float value between 0 and 1 - giving the confidence with which this intent was predicted for the given <code>message</code>.</td>
+</tr>
+<tr>
+<td><strong>entities</strong></td>
+<td>array [<code>Entity</code>]</td>
+<td>Array of entities that were recognized from the visitor message given in the request.<br /><br />Each object of type <code>Entity</code> will have the following fields:<br /><strong>name</strong> <code>string</code> - Name of the recognized entity<br /><strong>confidence</strong> <code>float</code> - Float value between 0 and 1 - giving the confidence with which this entity was recognized for the given <code>message</code>.<br /><strong>form</strong> <code>string</code> - Form of the entity recognized in the given <code>message</code>.<br /><strong>index</strong> <code>number</code> - TODO Index of the entity recognized.<br /><strong>id</strong> <code>number</code> - Identifier of the entity recognized.<br /><strong>sanitize</strong> <code>boolean</code> - Boolean marking if entity is sanitized.</td>
+</tr>
+</tbody></table>
+<h2 id='intent-recognition-usage'>Usage</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/intents'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'{"botId":"{botId}","conversationId":"{conversationId}","message":"{message}"}'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">getIntents</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/intents</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">botId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{botId}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{message}</span><span class="dl">'</span><span class="p">,</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{conversationId}</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+<span class="nx">getIntents</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
