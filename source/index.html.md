@@ -9,6 +9,7 @@ includes:
   - introduction
   - automation
   - intents
+  - gdpr
 
 search: true
 
