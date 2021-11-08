@@ -352,6 +352,26 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#delete-user-data" class="toc-h1 toc-link" data-title="Delete User Data">Delete User Data</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#delete-user-data-http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#delete-user-data-authorization" class="toc-h2 toc-link" data-title="Authorization">Authorization</a>
+                  </li>
+                  <li>
+                    <a href="#delete-user-data-request" class="toc-h2 toc-link" data-title="Request">Request</a>
+                  </li>
+                  <li>
+                    <a href="#delete-user-data-response" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+                  <li>
+                    <a href="#delete-user-data-usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -839,6 +859,106 @@ Please do not share your access tokens with other users or applications and don'
     <span class="p">);</span>
 
 <span class="nx">getIntents</span><span class="p">()</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+    <span class="p">});</span>
+</code></pre></div><h1 id='delete-user-data'>Delete User Data</h1>
+<p>Delete a user&#39;s conversation and message data based on conversationIds. </p>
+<h2 id='delete-user-data-http-request'>HTTP Request</h2>
+<p>Method: <code>POST</code></p>
+
+<p>Endpoint: <code>/api/gdpr/delete-user-data</code></p>
+<h2 id='delete-user-data-authorization'>Authorization</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/gdpr/delete-user-data'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'authorization: {basicAuthToken}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="nx">fetch</span><span class="p">(</span>
+    <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/gdpr/delete-user-data</span><span class="dl">'</span><span class="p">,</span> 
+    <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+            <span class="dl">'</span><span class="s1">authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">{basicAuthToken}</span><span class="dl">'</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>To use the delete user data API endpoint, a header named <code>authorization</code> needs to be set.</p>
+<h2 id='delete-user-data-request'>Request</h2>
+<p>Send your request as a JSON with MIME-type of application/json.</p>
+
+<blockquote>
+<p>Example Request:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"conversationIds"</span><span class="p">:[</span><span class="s2">"12345678987654321"</span><span class="p">,</span><span class="s2">"567456789876543255"</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>conversationIds</strong></td>
+<td>array</td>
+<td>true</td>
+<td>An array of IDs used to fetch the user&#39;s messages and conversations to be deleted<br /></td>
+</tr>
+</tbody></table>
+<h2 id='delete-user-data-response'>Response</h2>
+<blockquote>
+<p>Example Response:
+The endpoint will respond with a status code depending on the deletion process results:</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Status Code</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>Success</td>
+<td>deletion process was successfully completed.</td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Bad Request Error</td>
+<td>request data passed was not valid.</td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td>Auth Error</td>
+<td>user does not have the right permissions, auth token is invalid or expired.</td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Internal Server Error</td>
+<td>an unknown server error occurred.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-user-data-usage'>Usage</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/gdpr/delete-user-data'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'Authorization: Basic {basicAuthToken}'</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s1">'content-type: application/json;charset=UTF-8'</span> <span class="se">\</span>
+  <span class="nt">--data-raw</span> <span class="s1">'"conversationIds":"[{conversationId}]"'</span> <span class="se">\</span>
+  <span class="nt">--compressed</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">deleteUserData</span> <span class="o">=</span> <span class="nx">fetch</span><span class="p">(</span>
+        <span class="dl">'</span><span class="s1">https://chat.ultimate.ai/api/gdpr/delete-user-data</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">{</span>
+            <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+                <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span><span class="p">,</span>
+                <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Basic {basicAuthToken}</span><span class="dl">'</span>
+            <span class="p">},</span>
+            <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+                <span class="na">conversationId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">[{conversationId}, {conversationId}]</span><span class="dl">'</span>
+            <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">);</span>
+
+<span class="nx">deleteUserData</span><span class="p">()</span>
     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
     <span class="p">});</span>
