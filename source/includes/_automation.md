@@ -142,11 +142,11 @@ Field | Type  | Required | Description
     ],
   "languages": [
         {
-            "value": "EN",
+            "value": "eng",
             "confidence": 0.90
         },
         {
-            "value": "DE",
+            "value": "deu",
             "confidence": 0.000709668509662151
         }
   ]
