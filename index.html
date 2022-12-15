@@ -545,7 +545,17 @@ and don't publish them in public code repositories.
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jane.doe@email.com"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"languages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EN"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.90</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.000709668509662151</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>The endpoint will respond with a JSON with the following format:</p>
@@ -576,6 +586,11 @@ and don't publish them in public code repositories.
 <td><strong>entities</strong></td>
 <td>array [<code>Entity</code>]</td>
 <td>Array of entities that were extracted from the visitor message given in the request.<br /><br />Each object of type <code>Entity</code> will have the following fields:<br /><strong>name</strong> <code>string</code> - Name of the recognized entity<br /><strong>value</strong> <code>string</code> - the value that was extracted from the visitor message</td>
+</tr>
+<tr>
+<td><strong>languages</strong></td>
+<td>array [<code>Entity</code>]</td>
+<td>Array of languages detected from the visitor message given in the request.<br /><br />Each object of type <code>DetectedLanguage</code> will have the following fields:<br /><strong>value</strong> <code>string</code> - ISO code of the detected language <br /><strong>confidence</strong> <code>string</code> - condifidence percentage from 100% on a scale from 0 -&gt;1</td>
 </tr>
 </tbody></table>
 <h2 id='chat-automation-usage'>Usage</h2><h3 id='chat-automation-usage-start-a-conversation'>Start a conversation</h3><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://chat.ultimate.ai/api/v2/automation'</span> <span class="se">\</span>
