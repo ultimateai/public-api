@@ -139,7 +139,17 @@ Field | Type  | Required | Description
             "name": "email",
             "value": "jane.doe@email.com"
         }
-    ]
+    ],
+  "languages": [
+        {
+            "value": "EN",
+            "confidence": 0.90
+        },
+        {
+            "value": "DE",
+            "confidence": 0.000709668509662151
+        }
+  ]
 }
 ```
 
@@ -151,6 +161,7 @@ Field | Type  | Description
 **confidenceThreshold** | float | Float value between 0 and 1 - this is the bot's confidence threshold to answer to a visitor message. If there is no intent predicted (see `predictedIntens`) above this threshold, the bolt will return the default reply.
 **predictedIntents** | array[`Intent`] | Array containing intents that were predicted for the `text` sent in the request.<br /><br />Each object of type `Intent` contains the following fields:<br />**value** `string` - Unique ID identifying this intent.<br />**name** `string` - the intent's name<br />**confidence** `float` - Float value between 0 and 1 - giving the confidence with which this intent was predicted for the given `text`.  
 **entities** | array [`Entity`] |  Array of entities that were extracted from the visitor message given in the request.<br /><br />Each object of type `Entity` will have the following fields:<br />**name** `string` - Name of the recognized entity<br />**value** `string` - the value that was extracted from the visitor message
+**languages** | array [`Entity`] |  Array of entities that were extracted from the visitor message given in the request.<br /><br />Each object of type `Entity` will have the following fields:<br />**name** `string` - Name of the recognized entity<br />**value** `string` - the value that was extracted from the visitor message
 
 ## Usage
 ### Start a conversation
