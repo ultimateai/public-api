@@ -22,17 +22,19 @@ Please do not share your API Key with other users or applications and don't publ
 </aside>
 
 ## Request
-
-#### Headers:
-```json
+### Headers:
+```shell
 [
   {"apiKey":"YOUR_API_KEY"},
-  {"botid":"YOUR_BOT_ID"}
+  {"botId":"YOUR_BOT_ID"}
 ]
 ```
+In the header of your request you need to send your apiKey and the botId of the bot you want to converse with. 
 
+Your botId is a 24-digit identifier for your bot. You can find your botID by logging into the [Ultimate Dashboard](https://dashboard.ultimate.ai/), 
+selecting your bot and copying the botId from the URL.
 
-#### Body:
+### Body:
 ```json
 {
    "platformConversationId": "123456789abcdef",
