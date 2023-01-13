@@ -23,13 +23,15 @@ Please do not share your API Key with other users or applications and don't publ
 
 ## Request
 ### Headers:
-```shell
+```json
 [
   {"apiKey":"YOUR_API_KEY"},
   {"botId":"YOUR_BOT_ID"}
 ]
 ```
-In the header of your request you need to send your apiKey and the botId of the bot you want to converse with. 
+In the header of your request you need to send:
+- Your apiKey 
+- the botId of the bot you want to converse with. 
 
 Your botId is a 24-digit identifier for your bot. You can find your botID by logging into the [Ultimate Dashboard](https://dashboard.ultimate.ai/), 
 selecting your bot and copying the botId from the URL.
@@ -37,11 +39,11 @@ selecting your bot and copying the botId from the URL.
 ### Body:
 ```json
 {
-   "platformConversationId": "123456789abcdef",
-   "eventType":"message",
-   "text":"Hello! I want to make a refund, please",
-   "cardIndex": 1,
-   "metaData":[
+   "platformConversationId": "123-456-789",
+   "eventType":"startSession|message|endSession",
+   "text?":"Hello! I want to make a refund, please",
+   "cardIndex?": 1,
+   "metaData?":[
       {
          "key":"userId",
          "value":"54321"
@@ -49,6 +51,7 @@ selecting your bot and copying the botId from the URL.
    ]
 }
 ```
+The request body needs to be sent JSON format as per defined
 
 | Field                      | Type                                           | Required                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|------------------------------------------------|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -67,18 +70,38 @@ selecting your bot and copying the botId from the URL.
 
 ## Webhooks
 
-When the bot emit an event (message, escalation, is team online, action), it notifies the customer via webhook.
-Two webhooks need to be defined, one for chat events (message, escalation and is team online) and one for actions.
+When the bot emit an event (sendMessage, escalation, is team online, action), it notifies the customer via webhook.
+Two webhooks need to be defined, one for chat events (sendMessage, escalation and is team online) and one for actions.
 
-<aside class="notice">
-Please note that the customer could define the same webhook for both chat and actions.
-</aside>
 
 ### Webhook messages format
+Chat API will send to the webhooks the events generated. 
+The events can be:
+- A message (`sendMessage`), sent to the `Chat` webhook
+- An escalation (`escalate`), sent to the `Chat` webhook
+- Check if team is online (`isTeamOnline`), sent to the `Chat` webhook
+- Action (`isTeamOnline`), sent to the `Actions` webhook
+
+
+| Field         | Type   | Required                              | Description                                                                                               |
+|---------------|--------|---------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| **botId**     | string | true                                  | The ID of the bot that is sending the event.                                                              |
+| **data**      | Object | true                                  | Object containing the payload of the event. Depending on the event type, it will contain different values | 
+
 
 #### Message
+In the `sendMessage` event we can receive 3 types of messages from the bot inside the data field:
+##### Message with text only
 
-##### Message with text
+| Field                      | Type                              | Description                                                              |
+|----------------------------|-----------------------------------|--------------------------------------------------------------------------|
+| **eventType**              | string                            | The ID of the bot that is sending the event.                             |
+| **platformConversationId** | string <br />Set to `sendMessage` | Event of type sendMessage                                                | 
+| **type**                   | string <br />Set to `text`        | Simple text message type.                                                |
+| **replyId**                | string                            | The ID of the reply in Ultimate system that triggered this text message. |
+| **buttons**                | string[]                          | The buttons array will be empty for a simple text message                |
+| **text**                   | string                            | The text of the message.                                                 |
+| **carouselCards**          | carouselCard[]                    | The carousel  cards array will be empty for a simple text message        |
 ```json
 {
   "botId": "618a30beee4e8e87d2f94015",
@@ -88,12 +111,24 @@ Please note that the customer could define the same webhook for both chat and ac
     "type": "text",
     "replyId": "618a30be1c2ffe001ab1078f",
     "buttons": [],
-    "text": "Hello, this is a bot's text message",
+    "text": "Hello, this is a bot text message",
     "carouselCards": []
   }
 }
 ```
+Example in JSON format of the text message with only text
 ##### Message with buttons
+
+| Field                      | Type                              | Description                                                                                                                                                                                                                                  |
+|----------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **eventType**              | string                            | The ID of the bot that is sending the event.                                                                                                                                                                                                 |
+| **platformConversationId** | string <br />Set to `sendMessage` | Event of type sendMessage                                                                                                                                                                                                                    | 
+| **type**                   | string <br />Set to `text`        | Simple text message type.                                                                                                                                                                                                                    |
+| **replyId**                | string                            | The ID of the reply in Ultimate system that triggered this text message.                                                                                                                                                                     |
+| **buttons**                | string[]                          | The buttons array will be empty for a simple text message. Each object of type `MetaData` in the array needs to contain the following fields:<br />**type** `string` - set to the value `button`<br />**text** `string` - text of the button |
+| **text**                   | string                            | The text of the message with buttons. Not mandatory to exist.                                                                                                                                                                                |
+| **carouselCards**          | carouselCard[]                    | The carousel  cards array will be empty for a simple text message.                                                                                                                                                                           |
+
 ```json
 {
   "botId": "610abae7527db9ce033024e1",
@@ -112,12 +147,13 @@ Please note that the customer could define the same webhook for both chat and ac
         "text": "NO"
       }
     ],
-    "text": "its a text message with 2 buttons",
+    "text": "its a bot text message with 2 buttons",
     "carouselCards": []
   }
 }
-
 ```
+Example in JSON format of the text message with text and two buttons
+
 ##### Message with carousel
 ```json
 {
@@ -237,7 +273,6 @@ The payload of the message will depend on if it is a text message, a button sele
 ```
 
 #### Request body example for clicking a button
-If the virtual agent previously sent a message with buttons, like this:
 ```json
 {
   "botId": "BOT_ID",
@@ -265,8 +300,8 @@ If the virtual agent previously sent a message with buttons, like this:
   }
 }
 ```
-To send a button click to the endpoint, we need to pass the `text` field of the button
-in the `text` field of the request, like in this example selecting the third button with the text `Maybe`
+If the virtual agent previously sent a message with buttons, like this
+
 ```json
 {
   "platformConversationId": "00000001",
@@ -274,9 +309,10 @@ in the `text` field of the request, like in this example selecting the third but
   "text": "Maybe"
 }
 ```
+To send a button click to the endpoint, we need to pass the `text` field of the button
+in the `text` field of the request, like in this example selecting the third button with the text `Maybe`
 
 #### Request body example for clicking a carousel card
-If the virtual agent previously sent a message with a carousel with two cards, like this:
 ```json
 {
   "botId": "610abae7527db9ce033024e1",
@@ -314,9 +350,8 @@ If the virtual agent previously sent a message with a carousel with two cards, l
   }
 }
 ```
-To send a carousel card click to the endpoint, we need to pass the `text` field of the button of the card
-in the `text` field of the request and the card index (starting index in 0) in the `cardIndex` field as a number,
-like in this example selecting the second card
+If the virtual agent previously sent a message with a carousel with two cards, like this:
+
 ```json
 {
   "platformConversationId": "00000001",
@@ -325,6 +360,9 @@ like in this example selecting the second card
   "cardIndex": 1
 }
 ```
+To send a carousel card click to the endpoint, we need to pass the `text` field of the button of the card
+in the `text` field of the request and the card index (starting index in 0) in the `cardIndex` field as a number,
+like in this example selecting the second card
 
 ### End conversation
 To end an existing conversation (ie: when the chat widget is closed)
@@ -337,13 +375,41 @@ send `platformConversationId` of that conversation
   "eventType": "endSession"
 }
 ```
-
+Request example with a conversation end event
 
 ### API Client code snippets
 Please make sure that you are using a secure method for storing your environment variables, 
 such as a secret management tool. Storing sensitive data like API keys in plaintext or in the 
 codebase can be a security risk.
 #### Typescript
+
+```shell
+curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHORIZATION_TOKEN' -H 'botid: YOUR_BOT_ID' -H 'Content-Type: application/json' -d '{
+    "platformConversationId": "YOUR_PLATFORM_CONVERSATION_ID",
+    "eventType": "startSession",
+    "text": "Hello"
+}'
+```
+Curl command to start a conversation
+
+```shell
+curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHORIZATION_TOKEN' -H 'botid: YOUR_BOT_ID' -H 'Content-Type: application/json' -d '{
+"platformConversationId": "YOUR_PLATFORM_CONVERSATION_ID",
+"eventType": "message",
+"text": "Hello"
+}'
+```
+Curl command to send a text message
+
+```shell
+curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHORIZATION_TOKEN' -H 'botid: YOUR_BOT_ID' -H 'Content-Type: application/json' -d '{
+    "platformConversationId": "YOUR_PLATFORM_CONVERSATION_ID",
+    "eventType": "endSession",
+    "text": "Hello"
+}'
+```
+Curl command to end a conversation
+
 ```javascript
 import axios from 'axios';
 
@@ -364,7 +430,7 @@ const request = {
 
 async function converseChat() {
   try {
-    const response = await axios.post('https://api.example.com/converse/chat', request, { headers });
+    const response = await axios.post('https://api.ultimate.com/converse/chat', request, { headers });
     console.log(response.data);
   } catch (error) {
     console.error(error);
@@ -373,6 +439,7 @@ async function converseChat() {
 
 converseChat();
 ```
+Snippet code using typescript
 
 #### Java
 ```java
@@ -418,9 +485,30 @@ public class ChatApiExample {
     }
 }
 ```
+Snippet code using Java
 
 #### Java + Spring
 ```java
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class ChatRequest {
+    private String platformConversationId;
+    private String eventType;
+    private String text;
+    private MetaData metaData;
+    private Integer cardIndex;
+
+    @Data
+    @Builder
+    public static class MetaData {
+        private String key;
+        private String value;
+    }
+}
+
 @Service
 public class ChatService {
 
@@ -438,20 +526,54 @@ public class ChatService {
         this.botid = botid;
         this.restTemplate = restTemplate;
     }
+    
+};
 
-    public ResponseEntity<Object> converseChat(final ChatRequest chatRequest) {
+    public ResponseEntity<Object> converseChat() {
         final HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", authorization);
         headers.set("botid", botid);
+        
+        final ChatRequest chatRequest = ChatRequest.builder()
+            .platformConversationId("YOUR_PLATFORM_CONVERSATION_ID")
+            .eventType("message")
+            .text("Hello")
+            .metaData(ChatRequest.MetaData.builder()
+                .key("key")
+                .value("value")
+                .build())
+            .cardIndex(1)
+            .build();
 
         final HttpEntity<ChatRequest> request = new HttpEntity<>(chatRequest, headers);
         return restTemplate.postForEntity("https://api.ultimate.ai/converse/chat", request, Object.class);
     }
 }
 ```
+Snippet code using Java and Spring
 
 #### Java + Spring Webflux
 ```java
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class ChatRequest {
+    private String platformConversationId;
+    private String eventType;
+    private String text;
+    private MetaData metaData;
+    private Integer cardIndex;
+
+    @Data
+    @Builder
+    public static class MetaData {
+        private String key;
+        private String value;
+    }
+}
+
 @Service
 public class ChatService {
 
@@ -469,7 +591,19 @@ public class ChatService {
         this.webClient = webClient;
     }
 
-    public Mono<ResponseEntity<Object>> converseChat(final ChatRequest chatRequest) {
+    public Mono<ResponseEntity<Object>> converseChat() {
+        final ChatRequest chatRequest = ChatRequest.builder()
+            .platformConversationId("YOUR_PLATFORM_CONVERSATION_ID")
+            .eventType("message")
+            .text("Hello")
+            .metaData(ChatRequest.MetaData.builder()
+                .key("key")
+                .value("value")
+                .build())
+            .cardIndex(1)
+            .build();
+
+    
         return webClient.post()
                 .uri("https://api.ultimate.ai/converse/chat")
                 .header("Authorization", authorization)
@@ -481,3 +615,4 @@ public class ChatService {
 }
 
 ```
+Snippet code using Java and Spring Webflux
