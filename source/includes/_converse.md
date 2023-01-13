@@ -30,7 +30,9 @@ Please do not share your API Key with other users or applications and don't publ
 ]
 ```
 In the header of your request you need to send:
+
 - Your apiKey 
+
 - the botId of the bot you want to converse with. 
 
 Your botId is a 24-digit identifier for your bot. You can find your botID by logging into the [Ultimate Dashboard](https://dashboard.ultimate.ai/), 
@@ -77,9 +79,13 @@ Two webhooks need to be defined, one for chat events (sendMessage, escalation an
 ### Webhook messages format
 Chat API will send to the webhooks the events generated. 
 The events can be:
+
 - A message (`sendMessage`), sent to the `Chat` webhook
+
 - An escalation (`escalate`), sent to the `Chat` webhook
+
 - Check if team is online (`isTeamOnline`), sent to the `Chat` webhook
+
 - Action (`isTeamOnline`), sent to the `Actions` webhook
 
 
@@ -116,7 +122,7 @@ In the `sendMessage` event we can receive 3 types of messages from the bot insid
   }
 }
 ```
-Example in JSON format of the text message with only text
+You can find an example in JSON format of the text message with only text on the right.
 ##### Message with buttons
 
 | Field                      | Type                              | Description                                                                                                                                                                                                                                  |
@@ -152,7 +158,8 @@ Example in JSON format of the text message with only text
   }
 }
 ```
-Example in JSON format of the text message with text and two buttons
+You can find an example in JSON format of the text message with text and two buttons on the right.
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ##### Message with carousel
 ```json
@@ -200,7 +207,7 @@ Example in JSON format of the text message with text and two buttons
   }
 }
 ```
-
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Escalate
 ```json
 {
@@ -212,7 +219,7 @@ Example in JSON format of the text message with text and two buttons
   }
 }
 ```
-
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Is Team Online
 ```json
 {
@@ -223,7 +230,7 @@ Example in JSON format of the text message with text and two buttons
   }
 }
 ```
-
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Action
 ```json
 {
@@ -310,7 +317,7 @@ If the virtual agent previously sent a message with buttons, like this
 }
 ```
 To send a button click to the endpoint, we need to pass the `text` field of the button
-in the `text` field of the request, like in this example selecting the third button with the text `Maybe`
+in the `text` field of the request, like in the example on the right selecting the third button with the text `Maybe`
 
 #### Request body example for clicking a carousel card
 ```json
@@ -362,7 +369,7 @@ If the virtual agent previously sent a message with a carousel with two cards, l
 ```
 To send a carousel card click to the endpoint, we need to pass the `text` field of the button of the card
 in the `text` field of the request and the card index (starting index in 0) in the `cardIndex` field as a number,
-like in this example selecting the second card
+like in this example on the right selecting the second card
 
 ### End conversation
 To end an existing conversation (ie: when the chat widget is closed)
@@ -375,7 +382,7 @@ send `platformConversationId` of that conversation
   "eventType": "endSession"
 }
 ```
-Request example with a conversation end event
+Request example on the right with a conversation end event
 
 ### API Client code snippets
 Please make sure that you are using a secure method for storing your environment variables, 
