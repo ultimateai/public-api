@@ -207,6 +207,7 @@ You can find an example in JSON format of the text message with text and two but
   }
 }
 ```
+You can find an example in JSON format of the carousel message with two cards on the right.
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Escalate
 ```json
@@ -219,6 +220,7 @@ You can find an example in JSON format of the text message with text and two but
   }
 }
 ```
+You can find an example in JSON format of the escalation message on the right.
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Is Team Online
 ```json
@@ -230,6 +232,7 @@ You can find an example in JSON format of the text message with text and two but
   }
 }
 ```
+You can find an example in JSON format of the is team online message on the right.
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Action
 ```json
@@ -247,7 +250,8 @@ You can find an example in JSON format of the text message with text and two but
   ]
 }
 ```
-
+You can find an example in JSON format of an action message on the right.
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 ## Usage
 First of all you need to have the apiKey for the `Authorization` header 
 and the bot ID for the `botid` header.
@@ -266,7 +270,8 @@ All subsequent visitor messages sent in the conversation, should use the same
   "eventType": "startSession"
 }
 ```
-
+You can find a payload example in JSON format of starting a new conversation on the right.
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 ### Message
 The payload of the message will depend on if it is a text message, a button selection or a carousel's card selection
 
@@ -278,7 +283,8 @@ The payload of the message will depend on if it is a text message, a button sele
   "text": "I want to make a refund"
 }
 ```
-
+You can find a payload example in JSON format for sending a text message on the right.
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Request body example for clicking a button
 ```json
 {
@@ -307,8 +313,8 @@ The payload of the message will depend on if it is a text message, a button sele
   }
 }
 ```
-If the virtual agent previously sent a message with buttons, like this
-
+If the virtual agent previously sent a message with buttons to the webhook, like the one in the right:
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 ```json
 {
   "platformConversationId": "00000001",
@@ -318,6 +324,7 @@ If the virtual agent previously sent a message with buttons, like this
 ```
 To send a button click to the endpoint, we need to pass the `text` field of the button
 in the `text` field of the request, like in the example on the right selecting the third button with the text `Maybe`
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 #### Request body example for clicking a carousel card
 ```json
@@ -358,6 +365,7 @@ in the `text` field of the request, like in the example on the right selecting t
 }
 ```
 If the virtual agent previously sent a message with a carousel with two cards, like this:
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ```json
 {
@@ -370,6 +378,7 @@ If the virtual agent previously sent a message with a carousel with two cards, l
 To send a carousel card click to the endpoint, we need to pass the `text` field of the button of the card
 in the `text` field of the request and the card index (starting index in 0) in the `cardIndex` field as a number,
 like in this example on the right selecting the second card
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ### End conversation
 To end an existing conversation (ie: when the chat widget is closed)
@@ -382,7 +391,8 @@ send `platformConversationId` of that conversation
   "eventType": "endSession"
 }
 ```
-Request example on the right with a conversation end event
+Request example on the right to end a conversation
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 ### API Client code snippets
 Please make sure that you are using a secure method for storing your environment variables, 
@@ -397,8 +407,8 @@ curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHO
     "text": "Hello"
 }'
 ```
-Curl command to start a conversation
-
+Curl command to start a conversation on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 ```shell
 curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHORIZATION_TOKEN' -H 'botid: YOUR_BOT_ID' -H 'Content-Type: application/json' -d '{
 "platformConversationId": "YOUR_PLATFORM_CONVERSATION_ID",
@@ -406,8 +416,8 @@ curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHO
 "text": "Hello"
 }'
 ```
-Curl command to send a text message
-
+Curl command to send a text message on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 ```shell
 curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHORIZATION_TOKEN' -H 'botid: YOUR_BOT_ID' -H 'Content-Type: application/json' -d '{
     "platformConversationId": "YOUR_PLATFORM_CONVERSATION_ID",
@@ -415,8 +425,8 @@ curl -X POST https://api.ultimate.ai/converse/chat -H 'Authorization: YOUR_AUTHO
     "text": "Hello"
 }'
 ```
-Curl command to end a conversation
-
+Curl command to end a conversation on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 ```javascript
 import axios from 'axios';
 
@@ -446,8 +456,8 @@ async function converseChat() {
 
 converseChat();
 ```
-Snippet code using typescript
-
+Snippet code using typescript on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Java
 ```java
 import java.io.IOException;
@@ -492,8 +502,8 @@ public class ChatApiExample {
     }
 }
 ```
-Snippet code using Java
-
+Snippet code using Java on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Java + Spring
 ```java
 import lombok.Builder;
@@ -557,8 +567,8 @@ public class ChatService {
     }
 }
 ```
-Snippet code using Java and Spring
-
+Snippet code using Java and Spring on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 #### Java + Spring Webflux
 ```java
 import lombok.Builder;
@@ -622,4 +632,5 @@ public class ChatService {
 }
 
 ```
-Snippet code using Java and Spring Webflux
+Snippet code using Java and Spring Webflux on the right
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
